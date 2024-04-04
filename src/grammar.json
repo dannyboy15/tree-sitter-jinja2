@@ -63,7 +63,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "fn_call"
+          "name": "function"
         }
       ]
     },
@@ -650,12 +650,12 @@
         }
       ]
     },
-    "fn_call": {
+    "function": {
       "type": "SEQ",
       "members": [
         {
           "type": "FIELD",
-          "name": "fn_name",
+          "name": "function",
           "content": {
             "type": "SYMBOL",
             "name": "identifier"

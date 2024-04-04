@@ -85,7 +85,7 @@ config with list of string lits
 
 (source_file
   (expression
-  (fn_call
+  (function
     (identifier)
       (argument_list
         (kwarg

@@ -30,7 +30,7 @@ some text {{ 'floating lit' }} more text {{ config() }} text.
   )
   (text)
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list)
     )
@@ -67,7 +67,7 @@ unclosed jinja calls fail
 
 (source_file
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list)
     )
@@ -85,7 +85,7 @@ Config with kwarg equal to None
 
 (source_file
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (kwarg

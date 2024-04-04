@@ -9,7 +9,7 @@ select * from {{ ref('my_table') }}
 (source_file
   (text)
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (string
@@ -33,7 +33,7 @@ select * from {{ ref(not_a_string) }}
 (source_file
   (text)
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (ERROR
@@ -55,7 +55,7 @@ Config with one kwarg
 
 (source_file
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (kwarg
@@ -81,7 +81,7 @@ Config with two kwargs
 
 (source_file
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (kwarg
@@ -119,7 +119,7 @@ Fn with a kwarg, string lit, list, and dict
 
 (source_file
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (kwarg
@@ -171,7 +171,7 @@ parses other fn names
 
 (source_file
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list)
     )
@@ -195,7 +195,7 @@ join {{ ref('y') }}
 (source_file
   (text)
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (string
@@ -207,7 +207,7 @@ join {{ ref('y') }}
   )
   (text)
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (string
@@ -230,7 +230,7 @@ bool args
 
 (source_file
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (true)
@@ -250,7 +250,7 @@ bool kwargs
 
 (source_file
   (expression
-    (fn_call
+    (function
       (identifier)
       (argument_list
         (kwarg

@@ -20,7 +20,7 @@
           "named": true
         },
         {
-          "type": "fn_call",
+          "type": "function",
           "named": true
         },
         {
@@ -100,7 +100,7 @@
           "named": true
         },
         {
-          "type": "fn_call",
+          "type": "function",
           "named": true
         },
         {
@@ -131,7 +131,7 @@
     }
   },
   {
-    "type": "fn_call",
+    "type": "function",
     "named": true,
     "fields": {
       "argument_list": {
@@ -144,7 +144,7 @@
           }
         ]
       },
-      "fn_name": {
+      "function": {
         "multiple": false,
         "required": true,
         "types": [
@@ -197,7 +197,7 @@
             "named": true
           },
           {
-            "type": "fn_call",
+            "type": "function",
             "named": true
           },
           {
@@ -249,7 +249,7 @@
           "named": true
         },
         {
-          "type": "fn_call",
+          "type": "function",
           "named": true
         },
         {
@@ -310,7 +310,7 @@
             "named": true
           },
           {
-            "type": "fn_call",
+            "type": "function",
             "named": true
           },
           {
@@ -448,7 +448,7 @@
           "named": true
         },
         {
-          "type": "fn_call",
+          "type": "function",
           "named": true
         },
         {

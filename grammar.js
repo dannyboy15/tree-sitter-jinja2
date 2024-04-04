@@ -37,7 +37,7 @@ module.exports = grammar ({
 
         _expression: $ => choice(
             $._literal,
-            $.fn_call,
+            $.function,
         ),
 
         _literal: $ => choice(
@@ -170,8 +170,8 @@ module.exports = grammar ({
         ),
 
 
-        fn_call: $ => seq(
-            field('fn_name', $.identifier),
+        function: $ => seq(
+            field('function', $.identifier),
             field('argument_list', $.argument_list)
         ),
 
