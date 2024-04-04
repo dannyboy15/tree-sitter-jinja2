@@ -9,9 +9,9 @@ list of string lits
 (source_file
   (expression
     (list
-      (lit_string)
-      (lit_string)
-      (lit_string)
+      (string)
+      (string)
+      (string)
     )
   )
   (text)
@@ -43,9 +43,9 @@ list with trailing comma
 (source_file
   (expression
     (list
-      (lit_string)
-      (lit_string)
-      (lit_string)
+      (string)
+      (string)
+      (string)
     )
   )
   (text)
@@ -72,18 +72,18 @@ config with list of string lits
       (argument_list
         (kwarg
           (identifier)
-          (lit_string)
+          (string)
         )
         (kwarg
           (identifier)
-          (lit_string)
+          (string)
         )
         (kwarg
           (identifier)
           (list
-            (lit_string)
-            (lit_string)
-            (lit_string)
+            (string)
+            (string)
+            (string)
           )
         )
       )
@@ -106,22 +106,22 @@ deeply nested lists and dicts
     (list
       (dict
         (pair
-          (lit_string)
+          (string)
           (list
-            (lit_string)
+            (string)
             (dict
               (pair
-                (lit_string)
-                (lit_string)
+                (string)
+                (string)
               )
             )
           )
         )
       )
       (list
-        (lit_string)
-        (lit_string)
-        (lit_string)
+        (string)
+        (string)
+        (string)
       )
     )
   )
@@ -141,7 +141,7 @@ list with booleans
     (list
       (bool)
       (bool)
-      (lit_string)
+      (string)
     )
   )
   (text)

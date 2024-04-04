@@ -10,14 +10,14 @@ floating dict
   (expression
     (dict
       (pair
-        (lit_string)
-        (lit_string)
+        (string)
+        (string)
       )
       (pair
-        (lit_string)
+        (string)
         (list
-          (lit_string)
-          (lit_string)
+          (string)
+          (string)
         )
       )
     )
@@ -38,11 +38,11 @@ dict as arg
     (fn_call
       (identifier)
       (argument_list
-        (lit_string)
+        (string)
         (dict
           (pair
-            (lit_string)
-            (lit_string)
+            (string)
+            (string)
           )
         )
       )
@@ -68,8 +68,8 @@ proper config call
           (identifier)
           (dict
             (pair
-              (lit_string)
-              (lit_string)
+              (string)
+              (string)
             )
           )
         )
@@ -94,11 +94,11 @@ dict spread over lines
   (expression
     (dict
       (pair
-        (lit_string)
-        (lit_string)
+        (string)
+        (string)
       )
       (pair
-        (lit_string)
+        (string)
         (list)
       )
     )
@@ -118,11 +118,11 @@ dict with bools
   (expression
     (dict
       (pair
-        (lit_string)
+        (string)
         (bool)
       )
       (pair
-        (lit_string)
+        (string)
         (bool)
       )
     )

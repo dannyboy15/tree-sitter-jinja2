@@ -23,7 +23,7 @@ some text {{ 'floating lit' }} more text {{ config() }} text.
 (source_file
   (text)
   (expression
-    (lit_string)
+    (string)
   )
   (text)
   (expression

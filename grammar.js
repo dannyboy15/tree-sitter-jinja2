@@ -25,20 +25,28 @@ module.exports = grammar ({
 
     statement: $ => $.jinja_expression,
 
-    expression: $ => $._jinja_value,
+    expression:$ => seq(
+        '{{',
+        $._expression,
+        '}}'
+    ),
 
     comment: $ => $._jinja_comment,
 
     text: $ => $._text,
 
-    _jinja_value: $ => seq(
-        '{{',
-        $._expr,
-        '}}'
+    _expression: $ => choice(
+      $.fn_call,
+      $.list,
+      $.dict,
+      $.string,
+      $.bool,
+      $.integer,
+      $.float,
     ),
 
     // This is awkward regex because we aren't parsing anything
-    // in between the expression markers like _jinja_value does
+    // in between the expression markers like 'expression' does
     jinja_expression: $ => seq(
         '{%',
         new RegExp(
@@ -66,15 +74,6 @@ module.exports = grammar ({
         )
     ),
 
-    _expr: $ => choice(
-        $.fn_call,
-        $.list,
-        $.dict,
-        $.lit_string,
-        $.bool,
-        $.integer,
-        $.float,
-    ),
 
     fn_call: $ => seq(
         field('fn_name', $.identifier),
@@ -85,7 +84,7 @@ module.exports = grammar ({
         '(',
         optional(commaSep1(
             choice(
-                $._expr,
+                $._expression,
                 $.kwarg
             )
         )),
@@ -93,7 +92,7 @@ module.exports = grammar ({
         ')'
     ),
 
-    lit_string: $ => choice(
+    string: $ => choice(
         seq(
             "'",            // single quote string start
             /([^']|\\')*/,  // either not a `'` or a `\` followed by a `'` zero or more times
@@ -113,7 +112,7 @@ module.exports = grammar ({
 
     list: $ => seq(
         '[',
-        optional(commaSep1($._expr)),
+        optional(commaSep1($._expression)),
         optional(','),
         ']'
     ),
@@ -126,9 +125,9 @@ module.exports = grammar ({
     ),
 
     pair: $ => seq(
-        field('key', $.lit_string),
+        field('key', $.string),
         ':',
-        field('value', $._expr)
+        field('value', $._expression)
     ),
 
     identifier: $ => $._identifier,
@@ -143,7 +142,7 @@ module.exports = grammar ({
     kwarg: $ => seq(
         field("key", $.identifier),
         '=',
-        field("value", $._expr),
+        field("value", $._expression),
     ),
 
     // matches everything but jinja

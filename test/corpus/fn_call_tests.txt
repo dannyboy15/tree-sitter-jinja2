@@ -12,7 +12,7 @@ select * from {{ ref('my_table') }}
     (fn_call
       (identifier)
       (argument_list
-        (lit_string)
+        (string)
       )
     )
   )
@@ -57,7 +57,7 @@ Config with one kwarg
       (argument_list
         (kwarg
           (identifier)
-          (lit_string)
+          (string)
         )
       )
     )
@@ -80,11 +80,11 @@ Config with two kwargs
       (argument_list
         (kwarg
           (identifier)
-          (lit_string)
+          (string)
         )
         (kwarg
           (identifier)
-          (lit_string)
+          (string)
         )
       )
     )
@@ -112,18 +112,18 @@ Fn with a kwarg, string lit, list, and dict
       (argument_list
         (kwarg
           (identifier)
-          (lit_string)
+          (string)
         )
-        (lit_string)
+        (string)
         (dict
           (pair
-            (lit_string)
-            (lit_string)
+            (string)
+            (string)
           )
         )
         (list
-          (lit_string)
-          (lit_string)
+          (string)
+          (string)
         )
       )
     )
@@ -168,7 +168,7 @@ join {{ ref('y') }}
     (fn_call
       (identifier)
       (argument_list
-       (lit_string)
+       (string)
       )
     )
   )
@@ -177,7 +177,7 @@ join {{ ref('y') }}
     (fn_call
       (identifier)
       (argument_list
-        (lit_string)
+        (string)
       )
     )
   )
