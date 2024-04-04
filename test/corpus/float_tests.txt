@@ -7,7 +7,9 @@ common zero
 ---
 
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
 
 ==================
@@ -19,7 +21,9 @@ trailing-point zero
 ---
 
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
 
 ==================
@@ -31,8 +35,11 @@ leading-point zero
 ---
 
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
+
 
 ==================
 pi
@@ -43,7 +50,9 @@ pi
 ---
 
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
 
 ==================
@@ -55,7 +64,9 @@ exponent
 ---
 
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
 
 ==================
@@ -67,7 +78,9 @@ negative exponent
 ---
 
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
 
 ==================
@@ -79,8 +92,11 @@ negative
 ---
 
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
+
 
 ==================
 negative leading point
@@ -90,9 +106,13 @@ negative leading point
 
 ---
 
+
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
+
 
 ==================
 exponent but no point
@@ -103,8 +123,11 @@ exponent but no point
 ---
 
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
+
 
 ==================
 explicit positives
@@ -115,7 +138,8 @@ explicit positives
 ---
 
 (source_file
-  (float)
+  (expression
+    (float))
+  (text)
 )
-
 

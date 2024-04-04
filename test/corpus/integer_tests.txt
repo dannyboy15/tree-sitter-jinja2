@@ -7,8 +7,9 @@ zero
 ---
 
 (source_file
-  (integer)
-)
+  (expression
+    (integer))
+  (text))
 
 ==================
 verbose zero
@@ -19,8 +20,9 @@ verbose zero
 ---
 
 (source_file
-  (integer)
-)
+  (expression
+    (integer))
+  (text))
 
 ==================
 negative zero
@@ -31,8 +33,9 @@ negative zero
 ---
 
 (source_file
-  (integer)
-)
+  (expression
+    (integer))
+  (text))
 
 ==================
 leading zeros
@@ -43,8 +46,10 @@ leading zeros
 ---
 
 (source_file
-  (integer)
-)
+  (expression
+    (integer))
+  (text))
+
 
 ==================
 large number
@@ -55,8 +60,10 @@ large number
 ---
 
 (source_file
-  (integer)
-)
+  (expression
+    (integer))
+  (text))
+
 
 ==================
 negative number
@@ -67,8 +74,10 @@ negative number
 ---
 
 (source_file
-  (integer)
-)
+  (expression
+    (integer))
+  (text))
+
 
 ==================
 pandigital number
@@ -79,8 +88,10 @@ pandigital number
 ---
 
 (source_file
-  (integer)
-)
+  (expression
+    (integer))
+  (text))
+
 
 ==================
 explicit positive
@@ -91,5 +102,7 @@ explicit positive
 ---
 
 (source_file
-  (integer)
-)
+  (expression
+    (integer))
+  (text))
+

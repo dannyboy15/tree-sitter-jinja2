@@ -7,12 +7,18 @@ list of string lits
 ---
 
 (source_file
-  (list
-    (lit_string)
-    (lit_string)
-    (lit_string)
-  )
-)
+  (expression
+    (list
+      (string
+        (single_quote)
+        (string_content_sq))
+      (string
+        (single_quote)
+        (string_content_sq))
+      (string
+        (single_quote)
+        (string_content_sq))))
+  (text))
 
 ==================
 empty list
@@ -23,8 +29,9 @@ empty list
 ---
 
 (source_file
-  (list)
-)
+  (expression
+    (list))
+  (text))
 
 ==================
 list with trailing comma
@@ -35,12 +42,18 @@ list with trailing comma
 ---
 
 (source_file
-  (list
-    (lit_string)
-    (lit_string)
-    (lit_string)
-  )
-)
+  (expression
+    (list
+      (string
+        (single_quote)
+        (string_content_sq))
+      (string
+        (single_quote)
+        (string_content_sq))
+      (string
+        (single_quote)
+        (string_content_sq))))
+  (text))
 
 ==================
 config with list of string lits
@@ -57,60 +70,73 @@ config with list of string lits
 ---
 
 (source_file
-  (fn_call
-    (identifier)
-    (argument_list
-      (kwarg
-        (identifier)
-        (lit_string)
-      )
-      (kwarg
-        (identifier)
-        (lit_string)
-      )
-      (kwarg
-        (identifier)
-        (list
-          (lit_string)
-          (lit_string)
-          (lit_string)
-        )
-      )
-    )
-  )
-)
+  (expression
+    (function
+      (identifier)
+      (argument_list
+        (kwarg
+          (identifier)
+          (string
+            (single_quote)
+            (string_content_sq)))
+        (kwarg
+          (identifier)
+          (string
+            (single_quote)
+            (string_content_sq)))
+        (kwarg
+          (identifier)
+          (list
+            (string
+              (single_quote)
+              (string_content_sq))
+            (string
+              (single_quote)
+              (string_content_sq))
+            (string
+              (single_quote)
+              (string_content_sq)))))))
+  (text))
 
 ==================
 deeply nested lists and dicts
 ==================
 
-"{{ [{'k':['v', {'x': 'y'}]}, ['a', 'b', 'c']] }}"
+{{ [{'k':['v', {'x': 'y'}]}, ['a', 'b', 'c']] }}
 
 ---
 
 (source_file
-  (list
-    (dict
-      (pair
-        (lit_string)
-        (list
-          (lit_string)
-          (dict 
-            (pair
-              (lit_string)
-              (lit_string)
-            )
-          )
-        )
-      )
-    ) 
-    (list 
-      (lit_string)
-      (lit_string)
-      (lit_string)
-    )
-  )
-)
+  (expression
+    (list
+      (dict
+        (pair
+          (string
+            (single_quote)
+            (string_content_sq))
+          (list
+            (string
+              (single_quote)
+              (string_content_sq))
+            (dict
+              (pair
+                (string
+                  (single_quote)
+                  (string_content_sq))
+                (string
+                  (single_quote)
+                  (string_content_sq)))))))
+      (list
+        (string
+          (single_quote)
+          (string_content_sq))
+        (string
+          (single_quote)
+          (string_content_sq))
+        (string
+          (single_quote)
+          (string_content_sq)))))
+  (text))
 
 ==================
 list with booleans
@@ -121,9 +147,11 @@ list with booleans
 ---
 
 (source_file
-  (list
-    (bool)
-    (bool)
-    (lit_string)
-  )
-)
+  (expression
+    (list
+      (true)
+      (false)
+      (string
+        (single_quote)
+        (string_content_sq))))
+  (text))

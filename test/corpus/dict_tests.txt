@@ -7,20 +7,27 @@ floating dict
 ---
 
 (source_file
-  (dict
-    (pair 
-      (lit_string)
-      (lit_string)
-    )
-    (pair 
-      (lit_string)
-      (list 
-        (lit_string)
-        (lit_string)
-      )
-    )
-  )
-)
+  (expression
+    (dict
+      (pair
+        (string
+          (single_quote)
+          (string_content_sq))
+        (string
+          (single_quote)
+          (string_content_sq)))
+      (pair
+        (string
+          (single_quote)
+          (string_content_sq))
+        (list
+          (string
+            (single_quote)
+            (string_content_sq))
+          (string
+            (single_quote)
+            (string_content_sq))))))
+  (text))
 
 ==================
 dict as arg
@@ -31,19 +38,22 @@ dict as arg
 ---
 
 (source_file
-  (fn_call
-    (identifier)
-    (argument_list
-      (lit_string)
-      (dict
-        (pair 
-          (lit_string)
-          (lit_string)
-        )
-      )
-    )
-  )
-)
+  (expression
+    (function
+      (identifier)
+      (argument_list
+        (string
+          (single_quote)
+          (string_content_sq))
+        (dict
+          (pair
+            (string
+              (single_quote)
+              (string_content_sq))
+            (string
+              (single_quote)
+              (string_content_sq)))))))
+  (text))
 
 ==================
 proper config call
@@ -54,21 +64,21 @@ proper config call
 ---
 
 (source_file
-  (fn_call
-    (identifier)
-    (argument_list
-      (kwarg
-        (identifier)
-        (dict
-          (pair
-            (lit_string)
-            (lit_string)
-          )
-        )
-      )
-    )
-  )
-)
+  (expression
+    (function
+      (identifier)
+      (argument_list
+        (kwarg
+          (identifier)
+          (dict
+            (pair
+              (string
+                (single_quote)
+                (string_content_sq))
+              (string
+                (single_quote)
+                (string_content_sq))))))))
+  (text))
 
 ==================
 dict spread over lines
@@ -82,17 +92,21 @@ dict spread over lines
 ---
 
 (source_file
-  (dict
-    (pair
-      (lit_string)
-      (lit_string)
-    )
-    (pair
-      (lit_string)
-      (list)
-    )
-  )
-)
+  (expression
+    (dict
+      (pair
+        (string
+          (single_quote)
+          (string_content_sq))
+        (string
+          (single_quote)
+          (string_content_sq)))
+      (pair
+        (string
+          (single_quote)
+          (string_content_sq))
+        (list))))
+    (text))
 
 ==================
 dict with bools
@@ -103,14 +117,17 @@ dict with bools
 ---
 
 (source_file
-  (dict
-    (pair 
-      (lit_string)
-      (bool)
-    )
-    (pair 
-      (lit_string)
-      (bool)
-    )
-  )
-)
+  (expression
+    (dict
+      (pair
+        (string
+          (single_quote)
+          (string_content_sq))
+        (true))
+      (pair
+        (string
+          (single_quote)
+          (string_content_sq))
+        (false))))
+    (text))
+

@@ -2,16 +2,22 @@
 only jinja syntax in top-level quotes is parsed
 ==================
 
-'{{ "this will be parsed as jinja" }}'
+{{ "this will be parsed as jinja" }}
 
 {{ '{{ this inner jinja is just parsed as a string }}' }}
 
 ---
 
 (source_file
-  (lit_string)
-  (lit_string)
-)
+  (expression
+    (string
+      (double_quote)
+      (string_content_dq)))
+  (expression
+    (string
+      (single_quote)
+      (string_content_sq)))
+  (text))
 
 ==================
 python string escapes work
@@ -23,9 +29,16 @@ python string escapes work
 ---
 
 (source_file
-  (lit_string)
-  (lit_string)
-)
+  (expression
+    (string
+      (double_quote)
+      (string_content_dq)))
+  (expression
+    (string
+      (single_quote)
+      (string_content_sq)))
+  (text))
+
 
 ==================
 the kind of quotes you use don't matter
@@ -37,6 +50,13 @@ the kind of quotes you use don't matter
 ---
 
 (source_file
-  (lit_string)
-  (lit_string)
-)
+  (expression
+    (string
+      (single_quote)
+      (string_content_sq)))
+  (expression
+    (string
+      (double_quote)
+      (string_content_dq)))
+  (text))
+

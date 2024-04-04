@@ -9,8 +9,13 @@ comments around jinja
 ---
 
 (source_file
-  (bool)
-)
+  (comment
+    (comment_content))
+  (expression
+    (true))
+  (comment
+    (comment_content))
+  (text))
 
 ==================
 empty comment
@@ -23,8 +28,12 @@ empty comment
 ---
 
 (source_file
-  (bool)
-)
+  (comment
+    (comment_content))
+  (expression
+    (true))
+  (text))
+
 
 ==================
 wild comment formatting
@@ -39,9 +48,14 @@ wild comment formatting
 ---
 
 (source_file
-  (bool)
-  (bool)
-)
+  (expression
+    (true))
+  (comment
+    (comment_content))
+  (expression
+    (false))
+  (text))
+
 
 ==================
 wild comment formatting
@@ -51,13 +65,17 @@ wild comment formatting
 
 ---
 
-(source_file)
+(source_file
+  (comment
+    (comment_content))
+  (text))
 
 ==================
 text ending in a bracket fails
 ==================
 I'd like this to work, but it doesn't rn and this test
 makes a note of that {
+
 ---
 
-(source_file (ERROR))
+(source_file (text))
