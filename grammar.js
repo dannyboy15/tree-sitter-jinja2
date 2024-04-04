@@ -37,11 +37,11 @@ module.exports = grammar ({
 
     _expression: $ => choice(
         $.string,
+        $.integer,
         $.fn_call,
         $.list,
         $.dict,
         $.bool,
-        $.integer,
         $.float,
     ),
 
@@ -69,6 +69,13 @@ module.exports = grammar ({
     string_content_sq: _ => token(/([^']|\\')*/),
 
     string_content_dq: _ => token(/([^"]|\\")*/),
+
+    integer: _ => token(
+        seq(
+            optional(/[\+-]/),
+            repeat1(/[0-9]+_?/),
+        )
+    ),
 
     // This is awkward regex because we aren't parsing anything
     // in between the expression markers like 'expression' does
@@ -165,13 +172,6 @@ module.exports = grammar ({
             '[{][^{%#]' + // match a character that IS `{` and isn't followed by `{`, `%`, or`#`
         ')'             + // end capture group
         '+'               // one or more times. using this instead of * because tree-sitter can hang when matching the empty string.
-    ),
-
-    integer: $ => token(
-      seq(
-        optional(/[\+-]/),
-        repeat1(/_?[0-9]+/),
-      )
     ),
 
     float: $ => {
