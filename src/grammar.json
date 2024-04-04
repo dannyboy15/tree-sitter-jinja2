@@ -198,6 +198,10 @@
         {
           "type": "SYMBOL",
           "name": "function"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_math"
         }
       ]
     },
@@ -890,6 +894,36 @@
           }
         }
       ]
+    },
+    "_math": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_addition"
+        }
+      ]
+    },
+    "_addition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "integer"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "addition_symbol"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "integer"
+        }
+      ]
+    },
+    "addition_symbol": {
+      "type": "STRING",
+      "value": "+"
     },
     "comment_content": {
       "type": "PATTERN",

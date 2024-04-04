@@ -8,6 +8,10 @@
       "required": false,
       "types": [
         {
+          "type": "addition_symbol",
+          "named": true
+        },
+        {
           "type": "dict",
           "named": true
         },
@@ -98,9 +102,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
+      "multiple": true,
+      "required": false,
       "types": [
+        {
+          "type": "addition_symbol",
+          "named": true
+        },
         {
           "type": "dict",
           "named": true
@@ -194,9 +202,13 @@
         ]
       },
       "value": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "addition_symbol",
+            "named": true
+          },
           {
             "type": "dict",
             "named": true
@@ -253,6 +265,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "addition_symbol",
+          "named": true
+        },
         {
           "type": "dict",
           "named": true
@@ -315,9 +331,13 @@
         ]
       },
       "value": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": "addition_symbol",
+            "named": true
+          },
           {
             "type": "dict",
             "named": true
@@ -406,6 +426,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "addition_symbol",
+          "named": true
+        },
         {
           "type": "dict",
           "named": true
@@ -529,6 +553,10 @@
       "required": false,
       "types": [
         {
+          "type": "addition_symbol",
+          "named": true
+        },
+        {
           "type": "dict",
           "named": true
         },
@@ -610,6 +638,10 @@
   {
     "type": "]",
     "named": false
+  },
+  {
+    "type": "addition_symbol",
+    "named": true
   },
   {
     "type": "comment_content",

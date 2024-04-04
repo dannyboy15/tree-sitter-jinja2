@@ -87,6 +87,7 @@ module.exports = grammar ({
             $._literal,
             $.identifier,
             $.function,
+            $._math,
         ),
 
         _literal: $ => choice(
@@ -220,6 +221,18 @@ module.exports = grammar ({
             '=',
             field('value', $._expression),
         ),
+
+        _math: $ => choice(
+            $._addition,
+        ),
+
+        _addition: $ => seq(
+            $.integer,
+            $.addition_symbol,
+            $.integer,
+        ),
+
+        addition_symbol: _ => '+',
 
         // TODO: figure out issue with even number of hashes causing error
         comment_content: _ => /([^#]|(#[^}]))*?/,

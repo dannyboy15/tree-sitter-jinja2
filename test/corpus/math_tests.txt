@@ -1,0 +1,16 @@
+==================
+addition
+==================
+
+{{ 1 + 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (addition_symbol)
+    (integer)
+  )
+  (text)
+)
