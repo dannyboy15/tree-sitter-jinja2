@@ -23,7 +23,11 @@ module.exports = grammar ({
             )
         ),
 
-        statement: $ => $.jinja_expression,
+        statement: $ => seq(
+            '{%',
+            $._statement,
+            '%}',
+        ),
 
         expression:$ => seq(
             '{{',
@@ -38,6 +42,46 @@ module.exports = grammar ({
         ),
 
         text: $ => $._text,
+
+        _statement: $ => choice(
+            $._control_structures,
+            $._expression,
+        ),
+
+        _control_structures: $ => choice(
+            $._for,
+            $.endfor,
+            $._if,
+            $.endif,
+            $.elif,
+            $.else,
+        ),
+
+        _for: $ => seq(
+            $.for,
+            $._expression,
+            $.in,
+            $._expression,
+        ),
+
+        for: _ => 'for',
+
+        endfor: _ => 'endfor',
+
+        in: _ => 'in',
+
+        _if: $ => seq(
+            $.if,
+            $._expression
+        ),
+
+        if: _ => 'if',
+
+        endif: _ => 'endif',
+
+        elif: _ => 'elif',
+
+        else: _ => 'else',
 
         _expression: $ => choice(
             $._literal,
@@ -185,28 +229,14 @@ module.exports = grammar ({
         //   /(#[^}])*/,
         // )),
 
-        // This is awkward regex because we aren't parsing anything
-        // in between the expression markers like 'expression' does
-        jinja_expression: $ => seq(
-            '{%',
-            new RegExp(
-                '('         + // capture group
-                    '[^%]'  + // any character that isn't a `%`
-                    '|'     + // or
-                    '%[^}]' + // a `%` followed by any character that isn't `}`
-                    ')*'        + // zero or more of the previous capture group
-                    '%}'          // followed by a `%` then a `}`
-            )
-        ),
-
         // matches everything but jinja
         _text: $ => new RegExp(
             '('             + // capture group
                 '[^{]'      + // match any character that is not `{`
                 '|'         + // or
                 '[{][^{%#]' + // match a character that IS `{` and isn't followed by `{`, `%`, or`#`
-                ')'             + // end capture group
-                '+'               // one or more times. using this instead of * because tree-sitter can hang when matching the empty string.
+            ')'             + // end capture group
+            '+'               // one or more times. using this instead of * because tree-sitter can hang when matching the empty string.
         ),
     }
 });

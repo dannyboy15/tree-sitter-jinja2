@@ -180,11 +180,6 @@
     "fields": {}
   },
   {
-    "type": "jinja_expression",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "kwarg",
     "named": true,
     "fields": {
@@ -408,11 +403,79 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
+      "multiple": true,
+      "required": false,
       "types": [
         {
-          "type": "jinja_expression",
+          "type": "dict",
+          "named": true
+        },
+        {
+          "type": "elif",
+          "named": true
+        },
+        {
+          "type": "else",
+          "named": true
+        },
+        {
+          "type": "endfor",
+          "named": true
+        },
+        {
+          "type": "endif",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "for",
+          "named": true
+        },
+        {
+          "type": "function",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if",
+          "named": true
+        },
+        {
+          "type": "in",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "none",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "tuple",
           "named": true
         }
       ]
@@ -517,6 +580,10 @@
     "named": false
   },
   {
+    "type": "%}",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -549,11 +616,39 @@
     "named": true
   },
   {
+    "type": "elif",
+    "named": true
+  },
+  {
+    "type": "else",
+    "named": true
+  },
+  {
+    "type": "endfor",
+    "named": true
+  },
+  {
+    "type": "endif",
+    "named": true
+  },
+  {
     "type": "false",
     "named": true
   },
   {
     "type": "float",
+    "named": true
+  },
+  {
+    "type": "for",
+    "named": true
+  },
+  {
+    "type": "if",
+    "named": true
+  },
+  {
+    "type": "in",
     "named": true
   },
   {

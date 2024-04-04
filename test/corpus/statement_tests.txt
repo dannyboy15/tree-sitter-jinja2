@@ -1,0 +1,203 @@
+==================
+parses an if statement
+==================
+
+select * from table
+{% if call_function() %}
+select * from other_table
+{% endif %}
+
+---
+
+(source_file
+  (text)
+  (statement
+    (if)
+    (function
+      (identifier)
+      (argument_list)
+    )
+  )
+  (text)
+  (statement
+    (endif)
+  )
+  (text)
+)
+
+==================
+invalid statement
+==================
+
+{% ref('my_table') %}
+
+---
+
+(source_file
+  (statement
+    (function
+      (identifier)
+      (argument_list
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+      )
+    )
+  )
+  (text)
+)
+
+==================
+finds nested jinja expression
+==================
+
+{{ config(key='value') }}
+with
+something as (
+  select whatever from {{ ref('my_table') }}
+  where {% if is_incremental() %} and my_bool {%endif%}
+),
+other as (
+  more sql
+)
+
+---
+
+(source_file
+  (expression
+    (function
+      (identifier)
+      (argument_list
+        (kwarg
+          (identifier)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
+        )
+      )
+    )
+  )
+  (text)
+  (expression
+    (function
+      (identifier)
+      (argument_list
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+      )
+    )
+  )
+  (text)
+  (statement
+    (if)
+    (function
+      (identifier)
+      (argument_list)
+    )
+  )
+  (text)
+  (statement
+    (endif)
+  )
+  (text)
+)
+
+==================
+jinja expression recognized over multiple line breaks
+==================
+
+{%
+if true
+%}
+
+---
+
+(source_file
+  (statement
+    (if)
+    (true)
+  )
+  (text)
+)
+
+==================
+not a jinja expression
+==================
+
+{%}
+
+---
+
+(source_file
+  (ERROR)
+)
+
+==================
+parse for statement
+==================
+
+select
+{% for col in col_list %}
+{{ col }}
+{% endfor %}
+from table
+
+---
+
+(source_file
+  (text)
+  (statement
+    (for)
+    (identifier)
+    (in)
+    (identifier)
+  )
+  (expression
+    (identifier)
+  )
+  (statement
+    (endfor)
+  )
+  (text)
+)
+
+==================
+parse for else statement
+==================
+
+<ul>
+{% for user in users %}
+    <li>{{ user }}</li>
+{% else %}
+    <li><em>no users found</em></li>
+{% endfor %}
+</ul>
+
+---
+
+(source_file
+  (text)
+  (statement
+    (for)
+    (identifier)
+    (in)
+    (identifier)
+  )
+  (text)
+  (expression
+    (identifier)
+  )
+  (text)
+  (statement
+    (else)
+  )
+  (text)
+  (statement
+    (endfor)
+  )
+  (text)
+)

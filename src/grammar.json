@@ -26,8 +26,21 @@
       }
     },
     "statement": {
-      "type": "SYMBOL",
-      "name": "jinja_expression"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{%"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement"
+        },
+        {
+          "type": "STRING",
+          "value": "%}"
+        }
+      ]
     },
     "expression": {
       "type": "SEQ",
@@ -66,6 +79,110 @@
     "text": {
       "type": "SYMBOL",
       "name": "_text"
+    },
+    "_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_control_structures"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "_control_structures": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_for"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endfor"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endif"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "elif"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "else"
+        }
+      ]
+    },
+    "_for": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "for"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "for": {
+      "type": "STRING",
+      "value": "for"
+    },
+    "endfor": {
+      "type": "STRING",
+      "value": "endfor"
+    },
+    "in": {
+      "type": "STRING",
+      "value": "in"
+    },
+    "_if": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "if": {
+      "type": "STRING",
+      "value": "if"
+    },
+    "endif": {
+      "type": "STRING",
+      "value": "endif"
+    },
+    "elif": {
+      "type": "STRING",
+      "value": "elif"
+    },
+    "else": {
+      "type": "STRING",
+      "value": "else"
     },
     "_expression": {
       "type": "CHOICE",
@@ -777,19 +894,6 @@
     "comment_content": {
       "type": "PATTERN",
       "value": "([^#]|(#[^}]))*?"
-    },
-    "jinja_expression": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "{%"
-        },
-        {
-          "type": "PATTERN",
-          "value": "([^%]|%[^}])*%}"
-        }
-      ]
     },
     "_text": {
       "type": "PATTERN",
