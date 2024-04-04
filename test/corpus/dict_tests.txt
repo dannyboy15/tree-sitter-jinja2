@@ -10,14 +10,29 @@ floating dict
   (expression
     (dict
       (pair
-        (string)
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
       )
       (pair
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
         (list
-          (string)
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
         )
       )
     )
@@ -38,11 +53,20 @@ dict as arg
     (fn_call
       (identifier)
       (argument_list
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
         (dict
           (pair
-            (string)
-            (string)
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
           )
         )
       )
@@ -68,8 +92,14 @@ proper config call
           (identifier)
           (dict
             (pair
-              (string)
-              (string)
+              (string
+                (single_quote)
+                (string_content_sq)
+              )
+              (string
+                (single_quote)
+                (string_content_sq)
+              )
             )
           )
         )
@@ -94,11 +124,20 @@ dict spread over lines
   (expression
     (dict
       (pair
-        (string)
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
       )
       (pair
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
         (list)
       )
     )
@@ -118,11 +157,17 @@ dict with bools
   (expression
     (dict
       (pair
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
         (bool)
       )
       (pair
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
         (bool)
       )
     )

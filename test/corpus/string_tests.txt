@@ -11,11 +11,17 @@ only jinja syntax in top-level quotes is parsed
 (source_file
   (text)
   (expression
-    (string)
+    (string
+      (double_quote)
+      (string_content_dq)
+    )
   )
   (text)
   (expression
-    (string)
+    (string
+      (single_quote)
+      (string_content_sq)
+    )
   )
   (text)
 )
@@ -31,10 +37,16 @@ python string escapes work
 
 (source_file
   (expression
-    (string)
+    (string
+     (double_quote)
+      (string_content_dq)
+    )
   )
   (expression
-    (string)
+    (string
+      (single_quote)
+      (string_content_sq)
+    )
   )
   (text)
 )
@@ -50,10 +62,16 @@ the kind of quotes you use don't matter
 
 (source_file
   (expression
-    (string)
+    (string
+      (single_quote)
+      (string_content_sq)
+    )
   )
   (expression
-    (string)
+    (string
+      (double_quote)
+      (string_content_dq)
+    )
   )
   (text)
 )

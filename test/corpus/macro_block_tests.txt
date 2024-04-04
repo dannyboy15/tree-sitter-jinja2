@@ -54,7 +54,10 @@ other as (
       (argument_list
         (kwarg
           (identifier)
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
         )
       )
     )
@@ -64,7 +67,10 @@ other as (
     (fn_call
       (identifier)
       (argument_list
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
       )
     )
   )

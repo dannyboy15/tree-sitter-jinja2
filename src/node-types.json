@@ -68,6 +68,11 @@
     }
   },
   {
+    "type": "double_quote",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {},
@@ -282,6 +287,11 @@
     }
   },
   {
+    "type": "single_quote",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -326,20 +336,41 @@
   {
     "type": "string",
     "named": true,
-    "fields": {}
+    "fields": {
+      "quote_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "double_quote",
+            "named": true
+          },
+          {
+            "type": "single_quote",
+            "named": true
+          }
+        ]
+      },
+      "string_content": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string_content_dq",
+            "named": true
+          },
+          {
+            "type": "string_content_sq",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "text",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "\"",
-    "named": false
-  },
-  {
-    "type": "'",
-    "named": false
   },
   {
     "type": "(",
@@ -383,6 +414,14 @@
   },
   {
     "type": "integer",
+    "named": true
+  },
+  {
+    "type": "string_content_dq",
+    "named": true
+  },
+  {
+    "type": "string_content_sq",
     "named": true
   },
   {

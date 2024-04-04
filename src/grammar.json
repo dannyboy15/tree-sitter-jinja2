@@ -59,6 +59,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
           "name": "fn_call"
         },
         {
@@ -68,10 +72,6 @@
         {
           "type": "SYMBOL",
           "name": "dict"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "string"
         },
         {
           "type": "SYMBOL",
@@ -86,6 +86,91 @@
           "name": "float"
         }
       ]
+    },
+    "string": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "quote_type",
+              "content": {
+                "type": "SYMBOL",
+                "name": "single_quote"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "string_content",
+              "content": {
+                "type": "SYMBOL",
+                "name": "string_content_sq"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_single_quote"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "quote_type",
+              "content": {
+                "type": "SYMBOL",
+                "name": "double_quote"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "string_content",
+              "content": {
+                "type": "SYMBOL",
+                "name": "string_content_dq"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_double_quote"
+            }
+          ]
+        }
+      ]
+    },
+    "single_quote": {
+      "type": "SYMBOL",
+      "name": "_single_quote"
+    },
+    "_single_quote": {
+      "type": "STRING",
+      "value": "'"
+    },
+    "double_quote": {
+      "type": "SYMBOL",
+      "name": "_double_quote"
+    },
+    "_double_quote": {
+      "type": "STRING",
+      "value": "\""
+    },
+    "string_content_sq": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "([^']|\\\\')*"
+      }
+    },
+    "string_content_dq": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "([^\"]|\\\\\")*"
+      }
     },
     "jinja_expression": {
       "type": "SEQ",
@@ -207,45 +292,6 @@
         {
           "type": "STRING",
           "value": ")"
-        }
-      ]
-    },
-    "string": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "'"
-            },
-            {
-              "type": "PATTERN",
-              "value": "([^']|\\\\')*"
-            },
-            {
-              "type": "STRING",
-              "value": "'"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "\""
-            },
-            {
-              "type": "PATTERN",
-              "value": "([^\"]|\\\\\")*"
-            },
-            {
-              "type": "STRING",
-              "value": "\""
-            }
-          ]
         }
       ]
     },

@@ -12,7 +12,10 @@ select * from {{ ref('my_table') }}
     (fn_call
       (identifier)
       (argument_list
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
       )
     )
   )
@@ -57,7 +60,10 @@ Config with one kwarg
       (argument_list
         (kwarg
           (identifier)
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
         )
       )
     )
@@ -80,11 +86,17 @@ Config with two kwargs
       (argument_list
         (kwarg
           (identifier)
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
         )
         (kwarg
           (identifier)
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
         )
       )
     )
@@ -112,18 +124,36 @@ Fn with a kwarg, string lit, list, and dict
       (argument_list
         (kwarg
           (identifier)
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
         )
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
         (dict
           (pair
-            (string)
-            (string)
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
           )
         )
         (list
-          (string)
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
         )
       )
     )
@@ -168,7 +198,10 @@ join {{ ref('y') }}
     (fn_call
       (identifier)
       (argument_list
-       (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
       )
     )
   )
@@ -177,7 +210,10 @@ join {{ ref('y') }}
     (fn_call
       (identifier)
       (argument_list
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
       )
     )
   )

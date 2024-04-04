@@ -36,14 +36,39 @@ module.exports = grammar ({
     text: $ => $._text,
 
     _expression: $ => choice(
-      $.fn_call,
-      $.list,
-      $.dict,
-      $.string,
-      $.bool,
-      $.integer,
-      $.float,
+        $.string,
+        $.fn_call,
+        $.list,
+        $.dict,
+        $.bool,
+        $.integer,
+        $.float,
     ),
+
+    string: $ => choice(
+        seq(
+            field('quote_type', $.single_quote),            // single quote string start
+            field('string_content', $.string_content_sq),  // either not a `'` or a `\` followed by a `'` zero or more times
+            $._single_quote,            // single quote string start
+        ),
+        seq(
+            field('quote_type', $.double_quote),            // double quote string start
+            field('string_content', $.string_content_dq),  // either not a `"` or a `\` followed by a `"` zero or more times
+            $._double_quote,            // double quote string start
+        )
+    ),
+
+    single_quote: $ => $._single_quote,
+
+    _single_quote: _ => "'",
+
+    double_quote: $ => $._double_quote,
+
+    _double_quote: _ => '"',
+
+    string_content_sq: _ => token(/([^']|\\')*/),
+
+    string_content_dq: _ => token(/([^"]|\\")*/),
 
     // This is awkward regex because we aren't parsing anything
     // in between the expression markers like 'expression' does
@@ -90,19 +115,6 @@ module.exports = grammar ({
         )),
         optional(','),
         ')'
-    ),
-
-    string: $ => choice(
-        seq(
-            "'",            // single quote string start
-            /([^']|\\')*/,  // either not a `'` or a `\` followed by a `'` zero or more times
-            "'",            // single quote string start
-        ),
-        seq(
-            '"',            // double quote string start
-            /([^"]|\\")*/,  // either not a `"` or a `\` followed by a `"` zero or more times
-            '"',            // double quote string start
-        )
     ),
 
     bool: $ => choice(

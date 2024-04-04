@@ -9,9 +9,18 @@ list of string lits
 (source_file
   (expression
     (list
-      (string)
-      (string)
-      (string)
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
     )
   )
   (text)
@@ -43,9 +52,18 @@ list with trailing comma
 (source_file
   (expression
     (list
-      (string)
-      (string)
-      (string)
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
     )
   )
   (text)
@@ -72,18 +90,33 @@ config with list of string lits
       (argument_list
         (kwarg
           (identifier)
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
         )
         (kwarg
           (identifier)
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
         )
         (kwarg
           (identifier)
           (list
-            (string)
-            (string)
-            (string)
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
           )
         )
       )
@@ -106,22 +139,43 @@ deeply nested lists and dicts
     (list
       (dict
         (pair
-          (string)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
           (list
-            (string)
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
             (dict
               (pair
-                (string)
-                (string)
+                (string
+                  (single_quote)
+                  (string_content_sq)
+                )
+                (string
+                  (single_quote)
+                  (string_content_sq)
+                )
               )
             )
           )
         )
       )
       (list
-        (string)
-        (string)
-        (string)
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
       )
     )
   )
@@ -141,7 +195,10 @@ list with booleans
     (list
       (bool)
       (bool)
-      (string)
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
     )
   )
   (text)
