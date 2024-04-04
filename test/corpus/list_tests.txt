@@ -147,6 +147,7 @@ deeply nested lists and dicts
             (string
               (single_quote)
               (string_content_sq)
+
             )
             (dict
               (pair
@@ -193,8 +194,8 @@ list with booleans
 (source_file
   (expression
     (list
-      (bool)
-      (bool)
+      (true)
+      (false)
       (string
         (single_quote)
         (string_content_sq)

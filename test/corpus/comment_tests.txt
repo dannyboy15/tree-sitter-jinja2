@@ -11,7 +11,7 @@ comments around jinja
 (source_file
   (comment)
   (expression
-    (bool)
+    (true)
   )
   (comment)
   (text)
@@ -30,7 +30,7 @@ empty comment
 (source_file
   (comment)
   (expression
-    (bool)
+    (true)
   )
   (text)
 )
@@ -50,11 +50,11 @@ wild comment formatting
 
 (source_file
   (expression
-    (bool)
+    (true)
   )
   (comment)
   (expression
-    (bool)
+    (false)
   )
   (text)
 )

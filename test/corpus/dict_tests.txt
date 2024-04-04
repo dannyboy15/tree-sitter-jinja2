@@ -161,14 +161,14 @@ dict with bools
           (single_quote)
           (string_content_sq)
         )
-        (bool)
+        (true)
       )
       (pair
         (string
           (single_quote)
           (string_content_sq)
         )
-        (bool)
+        (false)
       )
     )
   )

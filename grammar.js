@@ -41,9 +41,9 @@ module.exports = grammar ({
             $.float,
             $.list,
             $.tuple,
-            $.fn_call,
             $.dict,
-            $.bool,
+            $._bool,
+            $.fn_call,
         ),
 
         string: $ => choice(
@@ -111,6 +111,28 @@ module.exports = grammar ({
             ')'
         ),
 
+        dict: $ => seq(
+            '{',
+            optional(commaSep1($.pair)),
+            optional(','),
+            '}'
+        ),
+
+        pair: $ => seq(
+            field('key', $.string),
+            ':',
+            field('value', $._expression)
+        ),
+
+        _bool: $ => choice(
+            $.true,
+            $.false,
+        ),
+
+        true: _ => /[Tt]rue/,
+
+        false: _ => /[Ff]alse/,
+
         // This is awkward regex because we aren't parsing anything
         // in between the expression markers like 'expression' does
         jinja_expression: $ => seq(
@@ -156,24 +178,6 @@ module.exports = grammar ({
             )),
             optional(','),
             ')'
-        ),
-
-        bool: $ => choice(
-            'True',
-            'False'
-        ),
-
-        dict: $ => seq(
-            '{',
-            optional(commaSep1($.pair)),
-            optional(','),
-            '}'
-        ),
-
-        pair: $ => seq(
-            field('key', $.string),
-            ':',
-            field('value', $._expression)
         ),
 
         identifier: $ => $._identifier,

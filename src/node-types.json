@@ -8,11 +8,11 @@
       "required": false,
       "types": [
         {
-          "type": "bool",
+          "type": "dict",
           "named": true
         },
         {
-          "type": "dict",
+          "type": "false",
           "named": true
         },
         {
@@ -40,16 +40,15 @@
           "named": true
         },
         {
+          "type": "true",
+          "named": true
+        },
+        {
           "type": "tuple",
           "named": true
         }
       ]
     }
-  },
-  {
-    "type": "bool",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "comment",
@@ -85,11 +84,11 @@
       "required": true,
       "types": [
         {
-          "type": "bool",
+          "type": "dict",
           "named": true
         },
         {
-          "type": "dict",
+          "type": "false",
           "named": true
         },
         {
@@ -110,6 +109,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
           "named": true
         },
         {
@@ -174,11 +177,11 @@
         "required": true,
         "types": [
           {
-            "type": "bool",
+            "type": "dict",
             "named": true
           },
           {
-            "type": "dict",
+            "type": "false",
             "named": true
           },
           {
@@ -202,6 +205,10 @@
             "named": true
           },
           {
+            "type": "true",
+            "named": true
+          },
+          {
             "type": "tuple",
             "named": true
           }
@@ -218,11 +225,11 @@
       "required": false,
       "types": [
         {
-          "type": "bool",
+          "type": "dict",
           "named": true
         },
         {
-          "type": "dict",
+          "type": "false",
           "named": true
         },
         {
@@ -243,6 +250,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
           "named": true
         },
         {
@@ -271,11 +282,11 @@
         "required": true,
         "types": [
           {
-            "type": "bool",
+            "type": "dict",
             "named": true
           },
           {
-            "type": "dict",
+            "type": "false",
             "named": true
           },
           {
@@ -296,6 +307,10 @@
           },
           {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
             "named": true
           },
           {
@@ -401,11 +416,11 @@
       "required": false,
       "types": [
         {
-          "type": "bool",
+          "type": "dict",
           "named": true
         },
         {
-          "type": "dict",
+          "type": "false",
           "named": true
         },
         {
@@ -426,6 +441,10 @@
         },
         {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
           "named": true
         },
         {
@@ -456,20 +475,16 @@
     "named": false
   },
   {
-    "type": "False",
-    "named": false
-  },
-  {
-    "type": "True",
-    "named": false
-  },
-  {
     "type": "[",
     "named": false
   },
   {
     "type": "]",
     "named": false
+  },
+  {
+    "type": "false",
+    "named": true
   },
   {
     "type": "float",
@@ -485,6 +500,10 @@
   },
   {
     "type": "string_content_sq",
+    "named": true
+  },
+  {
+    "type": "true",
     "named": true
   },
   {

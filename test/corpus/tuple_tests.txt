@@ -194,8 +194,8 @@ tuples with booleans
 (source_file
   (expression
     (tuple
-      (bool)
-      (bool)
+      (true)
+      (false)
       (string
         (single_quote)
         (string_content_sq)

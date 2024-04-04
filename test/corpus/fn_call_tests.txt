@@ -233,7 +233,7 @@ bool args
     (fn_call
       (identifier)
       (argument_list
-        (bool)
+        (true)
       )
     )
   )
@@ -255,7 +255,7 @@ bool kwargs
       (argument_list
         (kwarg
           (identifier)
-          (bool)
+          (false)
         )
       )
     )
@@ -274,7 +274,7 @@ True is an invalid fn name
 (source_file
   (expression
     (ERROR
-      (bool)
+      (true)
     )
     (tuple)
   )
