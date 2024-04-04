@@ -7,19 +7,22 @@ floating dict
 ---
 
 (source_file
-  (dict
-    (pair 
-      (lit_string)
-      (lit_string)
-    )
-    (pair 
-      (lit_string)
-      (list 
+  (expression
+    (dict
+      (pair
         (lit_string)
         (lit_string)
       )
+      (pair
+        (lit_string)
+        (list
+          (lit_string)
+          (lit_string)
+        )
+      )
     )
   )
+  (text)
 )
 
 ==================
@@ -31,18 +34,21 @@ dict as arg
 ---
 
 (source_file
-  (fn_call
-    (identifier)
-    (argument_list
-      (lit_string)
-      (dict
-        (pair 
-          (lit_string)
-          (lit_string)
+  (expression
+    (fn_call
+      (identifier)
+      (argument_list
+        (lit_string)
+        (dict
+          (pair
+            (lit_string)
+            (lit_string)
+          )
         )
       )
     )
   )
+  (text)
 )
 
 ==================
@@ -54,20 +60,23 @@ proper config call
 ---
 
 (source_file
-  (fn_call
-    (identifier)
-    (argument_list
-      (kwarg
-        (identifier)
-        (dict
-          (pair
-            (lit_string)
-            (lit_string)
+  (expression
+    (fn_call
+      (identifier)
+      (argument_list
+        (kwarg
+          (identifier)
+          (dict
+            (pair
+              (lit_string)
+              (lit_string)
+            )
           )
         )
       )
     )
   )
+  (text)
 )
 
 ==================
@@ -82,16 +91,19 @@ dict spread over lines
 ---
 
 (source_file
-  (dict
-    (pair
-      (lit_string)
-      (lit_string)
-    )
-    (pair
-      (lit_string)
-      (list)
+  (expression
+    (dict
+      (pair
+        (lit_string)
+        (lit_string)
+      )
+      (pair
+        (lit_string)
+        (list)
+      )
     )
   )
+  (text)
 )
 
 ==================
@@ -103,14 +115,17 @@ dict with bools
 ---
 
 (source_file
-  (dict
-    (pair 
-      (lit_string)
-      (bool)
-    )
-    (pair 
-      (lit_string)
-      (bool)
+  (expression
+    (dict
+      (pair
+        (lit_string)
+        (bool)
+      )
+      (pair
+        (lit_string)
+        (bool)
+      )
     )
   )
+  (text)
 )

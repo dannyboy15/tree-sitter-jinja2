@@ -7,11 +7,14 @@ list of string lits
 ---
 
 (source_file
-  (list
-    (lit_string)
-    (lit_string)
-    (lit_string)
+  (expression
+    (list
+      (lit_string)
+      (lit_string)
+      (lit_string)
+    )
   )
+  (text)
 )
 
 ==================
@@ -23,7 +26,10 @@ empty list
 ---
 
 (source_file
-  (list)
+  (expression
+    (list)
+  )
+  (text)
 )
 
 ==================
@@ -35,11 +41,14 @@ list with trailing comma
 ---
 
 (source_file
-  (list
-    (lit_string)
-    (lit_string)
-    (lit_string)
+  (expression
+    (list
+      (lit_string)
+      (lit_string)
+      (lit_string)
+    )
   )
+  (text)
 )
 
 ==================
@@ -57,27 +66,30 @@ config with list of string lits
 ---
 
 (source_file
+  (expression
   (fn_call
     (identifier)
-    (argument_list
-      (kwarg
-        (identifier)
-        (lit_string)
-      )
-      (kwarg
-        (identifier)
-        (lit_string)
-      )
-      (kwarg
-        (identifier)
-        (list
+      (argument_list
+        (kwarg
+          (identifier)
           (lit_string)
+        )
+        (kwarg
+          (identifier)
           (lit_string)
-          (lit_string)
+        )
+        (kwarg
+          (identifier)
+          (list
+            (lit_string)
+            (lit_string)
+            (lit_string)
+          )
         )
       )
     )
   )
+  (text)
 )
 
 ==================
@@ -89,27 +101,31 @@ deeply nested lists and dicts
 ---
 
 (source_file
-  (list
-    (dict
-      (pair
-        (lit_string)
-        (list
+  (text)
+  (expression
+    (list
+      (dict
+        (pair
           (lit_string)
-          (dict 
-            (pair
-              (lit_string)
-              (lit_string)
+          (list
+            (lit_string)
+            (dict
+              (pair
+                (lit_string)
+                (lit_string)
+              )
             )
           )
         )
       )
-    ) 
-    (list 
-      (lit_string)
-      (lit_string)
-      (lit_string)
+      (list
+        (lit_string)
+        (lit_string)
+        (lit_string)
+      )
     )
   )
+  (text)
 )
 
 ==================
@@ -121,9 +137,12 @@ list with booleans
 ---
 
 (source_file
-  (list
-    (bool)
-    (bool)
-    (lit_string)
+  (expression
+    (list
+      (bool)
+      (bool)
+      (lit_string)
+    )
   )
+  (text)
 )

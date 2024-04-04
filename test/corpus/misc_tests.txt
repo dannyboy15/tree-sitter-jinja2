@@ -21,11 +21,18 @@ some text {{ 'floating lit' }} more text {{ config() }} text.
 ---
 
 (source_file
-  (lit_string)
-  (fn_call
-    (identifier)
-    (argument_list)
+  (text)
+  (expression
+    (lit_string)
   )
+  (text)
+  (expression
+    (fn_call
+      (identifier)
+      (argument_list)
+    )
+  )
+  (text)
 )
 
 ==================
@@ -36,7 +43,9 @@ some curlys { }
 
 ---
 
-(source_file)
+(source_file
+  (text)
+)
 
 ==================
 doesn't hang on the empty string
@@ -49,14 +58,16 @@ doesn't hang on the empty string
 unclosed jinja calls fail
 ==================
 
-{{ fn() 
+{{ fn()
 
 ---
 
 (source_file
-  (fn_call
-    (identifier)
-    (argument_list)
+  (expression
+    (fn_call
+      (identifier)
+      (argument_list)
+    )
+    (MISSING "}}")
   )
-  (MISSING "}}")
 )
