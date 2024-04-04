@@ -47,8 +47,21 @@
       ]
     },
     "comment": {
-      "type": "SYMBOL",
-      "name": "_jinja_comment"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{#"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comment_content"
+        },
+        {
+          "type": "STRING",
+          "value": "#}"
+        }
+      ]
     },
     "text": {
       "type": "SYMBOL",
@@ -761,6 +774,10 @@
         }
       ]
     },
+    "comment_content": {
+      "type": "PATTERN",
+      "value": "([^#]|(#[^}]))*?"
+    },
     "jinja_expression": {
       "type": "SEQ",
       "members": [
@@ -771,19 +788,6 @@
         {
           "type": "PATTERN",
           "value": "([^%]|%[^}])*%}"
-        }
-      ]
-    },
-    "_jinja_comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "{#"
-        },
-        {
-          "type": "PATTERN",
-          "value": "(([^#]|#[^}])*)#+}"
         }
       ]
     },

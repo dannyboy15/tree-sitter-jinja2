@@ -9,11 +9,15 @@ comments around jinja
 ---
 
 (source_file
-  (comment)
+  (comment
+    (comment_content)
+  )
   (expression
     (true)
   )
-  (comment)
+  (comment
+    (comment_content)
+  )
   (text)
 )
 
@@ -28,7 +32,9 @@ empty comment
 ---
 
 (source_file
-  (comment)
+  (comment
+    (comment_content)
+  )
   (expression
     (true)
   )
@@ -52,7 +58,9 @@ wild comment formatting
   (expression
     (true)
   )
-  (comment)
+  (comment
+    (comment_content)
+  )
   (expression
     (false)
   )
@@ -68,7 +76,9 @@ wild comment formatting
 ---
 
 (source_file
-  (comment)
+  (comment
+    (comment_content)
+  )
   (text)
 )
 

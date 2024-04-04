@@ -31,7 +31,11 @@ module.exports = grammar ({
             '}}'
         ),
 
-        comment: $ => $._jinja_comment,
+        comment: $ => seq(
+            '{#',
+            $.comment_content,
+            '#}',
+        ),
 
         text: $ => $._text,
 
@@ -173,6 +177,14 @@ module.exports = grammar ({
             field('value', $._expression),
         ),
 
+        // TODO: figure out issue with even number of hashes causing error
+        comment_content: _ => /([^#]|(#[^}]))*?/,
+        // comment_content: _ => /([^#]|[#}])\1)*/,
+        // comment_content: _ => token(choice(
+        //   /[^#]*/,
+        //   /(#[^}])*/,
+        // )),
+
         // This is awkward regex because we aren't parsing anything
         // in between the expression markers like 'expression' does
         jinja_expression: $ => seq(
@@ -186,22 +198,6 @@ module.exports = grammar ({
                     '%}'          // followed by a `%` then a `}`
             )
         ),
-
-        // comment regex is special because a comment can end
-        // with #} ##} #######} etc.
-        _jinja_comment: $ => seq(
-            '{#',                 // comments start with `{#`
-            new RegExp(
-                '('             + // capture group
-                    '('         + // capture group
-                    '[^#]'  + // any character that isn't `#`
-                    '|'     + // or
-                    '#[^}]' + // a `#` character followed by another character that isn't `}`
-                    ')*'        + // zero or more of the previous capture group
-                    ')#+}'            // followed by at least one `#` and a `}`
-            )
-        ),
-
 
         // matches everything but jinja
         _text: $ => new RegExp(
