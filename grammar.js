@@ -39,8 +39,9 @@ module.exports = grammar ({
             $.string,
             $.integer,
             $.float,
-            $.fn_call,
             $.list,
+            $.tuple,
+            $.fn_call,
             $.dict,
             $.bool,
         ),
@@ -90,6 +91,25 @@ module.exports = grammar ({
                 )
             )
         },
+
+        list: $ => seq(
+            '[',
+            optional(commaSep1($._expression)),
+            optional(','),
+            ']'
+        ),
+
+        tuple: $ => seq(
+            '(',
+            choice(
+                seq(
+                    optional(commaSep1($._expression)),
+                    optional(','),
+                ),
+                ','
+            ),
+            ')'
+        ),
 
         // This is awkward regex because we aren't parsing anything
         // in between the expression markers like 'expression' does
@@ -141,13 +161,6 @@ module.exports = grammar ({
         bool: $ => choice(
             'True',
             'False'
-        ),
-
-        list: $ => seq(
-            '[',
-            optional(commaSep1($._expression)),
-            optional(','),
-            ']'
         ),
 
         dict: $ => seq(

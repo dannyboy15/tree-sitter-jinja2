@@ -272,7 +272,11 @@ True is an invalid fn name
 ---
 
 (source_file
-  (ERROR
-    (bool)
+  (expression
+    (ERROR
+      (bool)
+    )
+    (tuple)
   )
+  (text)
 )

@@ -1,0 +1,207 @@
+==================
+tuple of strings
+==================
+
+{{ ('a','bc','def') }}
+
+---
+
+(source_file
+  (expression
+    (tuple
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+    )
+  )
+  (text)
+)
+
+==================
+empty tuple
+==================
+
+{{ () }}
+
+---
+
+(source_file
+  (expression
+    (tuple)
+  )
+  (text)
+)
+
+==================
+tuple with trailing comma
+==================
+
+{{ ('a','bc','def',) }}
+
+---
+
+(source_file
+  (expression
+    (tuple
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+    )
+  )
+  (text)
+)
+
+==================
+config with tuple of strings
+==================
+
+{{
+  config(
+    k='v',
+    k2='v2',
+    tuple=('a','bc','def')
+  )
+}}
+
+---
+
+(source_file
+  (expression
+  (fn_call
+    (identifier)
+      (argument_list
+        (kwarg
+          (identifier)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
+        )
+        (kwarg
+          (identifier)
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
+        )
+        (kwarg
+          (identifier)
+          (tuple
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
+            (string
+              (single_quote)
+              (string_content_sq)
+            )
+          )
+        )
+      )
+    )
+  )
+  (text)
+)
+
+==================
+deeply nested tuples and dicts
+==================
+
+"{{ ({'k':('v', {'x': 'y'})}, ('a', 'b', 'c')) }}"
+
+---
+
+(source_file
+  (text)
+  (expression
+    (tuple
+      (dict
+        (pair
+          (string
+            (single_quote)
+            (string_content_sq)
+          )
+          (tuple
+            (string
+              (single_quote)
+              (string_content_sq)
+
+            )
+            (dict
+              (pair
+                (string
+                  (single_quote)
+                  (string_content_sq)
+                )
+                (string
+                  (single_quote)
+                  (string_content_sq)
+                )
+              )
+            )
+          )
+        )
+      )
+      (tuple
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+      )
+    )
+  )
+  (text)
+)
+
+==================
+tuples with booleans
+==================
+
+{{ (True, False, 'string') }}
+
+---
+
+(source_file
+  (expression
+    (tuple
+      (bool)
+      (bool)
+      (string
+        (single_quote)
+        (string_content_sq)
+      )
+    )
+  )
+  (text)
+)
+
