@@ -36,6 +36,11 @@ module.exports = grammar ({
         text: $ => $._text,
 
         _expression: $ => choice(
+            $._literal,
+            $.fn_call,
+        ),
+
+        _literal: $ => choice(
             $.string,
             $.integer,
             $.float,
@@ -44,7 +49,6 @@ module.exports = grammar ({
             $.dict,
             $._bool,
             $.none,
-            $.fn_call,
         ),
 
         string: $ => choice(

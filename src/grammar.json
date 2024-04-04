@@ -59,6 +59,19 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fn_call"
+        }
+      ]
+    },
+    "_literal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
           "name": "string"
         },
         {
@@ -88,10 +101,6 @@
         {
           "type": "SYMBOL",
           "name": "none"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "fn_call"
         }
       ]
     },
