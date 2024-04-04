@@ -150,6 +150,29 @@ module.exports = grammar ({
             '[a-zA-Z0-9_]*'   // all following characters must be a lower or upper letter, digit, or underscore.
         )),
 
+        function: $ => seq(
+            field('name', $.identifier),
+            field('argument_list', $.argument_list)
+        ),
+
+        argument_list: $ => seq(
+            '(',
+            optional(commaSep1(
+                choice(
+                    $._expression,
+                    $.kwarg
+                )
+            )),
+            optional(','),
+            ')'
+        ),
+
+        kwarg: $ => seq(
+            field('key', $.identifier),
+            '=',
+            field('value', $._expression),
+        ),
+
         // This is awkward regex because we aren't parsing anything
         // in between the expression markers like 'expression' does
         jinja_expression: $ => seq(
@@ -179,29 +202,6 @@ module.exports = grammar ({
             )
         ),
 
-
-        function: $ => seq(
-            field('function', $.identifier),
-            field('argument_list', $.argument_list)
-        ),
-
-        argument_list: $ => seq(
-            '(',
-            optional(commaSep1(
-                choice(
-                    $._expression,
-                    $.kwarg
-                )
-            )),
-            optional(','),
-            ')'
-        ),
-
-        kwarg: $ => seq(
-            field("key", $.identifier),
-            '=',
-            field("value", $._expression),
-        ),
 
         // matches everything but jinja
         _text: $ => new RegExp(

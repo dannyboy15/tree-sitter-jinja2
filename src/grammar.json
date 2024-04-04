@@ -639,38 +639,12 @@
         "value": "[a-zA-Z_][a-zA-Z0-9_]*"
       }
     },
-    "jinja_expression": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "{%"
-        },
-        {
-          "type": "PATTERN",
-          "value": "([^%]|%[^}])*%}"
-        }
-      ]
-    },
-    "_jinja_comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "{#"
-        },
-        {
-          "type": "PATTERN",
-          "value": "(([^#]|#[^}])*)#+}"
-        }
-      ]
-    },
     "function": {
       "type": "SEQ",
       "members": [
         {
           "type": "FIELD",
-          "name": "function",
+          "name": "name",
           "content": {
             "type": "SYMBOL",
             "name": "identifier"
@@ -784,6 +758,32 @@
             "type": "SYMBOL",
             "name": "_expression"
           }
+        }
+      ]
+    },
+    "jinja_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{%"
+        },
+        {
+          "type": "PATTERN",
+          "value": "([^%]|%[^}])*%}"
+        }
+      ]
+    },
+    "_jinja_comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{#"
+        },
+        {
+          "type": "PATTERN",
+          "value": "(([^#]|#[^}])*)#+}"
         }
       ]
     },

@@ -37,11 +37,11 @@ enum {
   sym_false = 18,
   sym_none = 19,
   sym__identifier = 20,
-  anon_sym_LBRACE_PERCENT = 21,
-  aux_sym_jinja_expression_token1 = 22,
-  anon_sym_LBRACE_POUND = 23,
-  aux_sym__jinja_comment_token1 = 24,
-  anon_sym_EQ = 25,
+  anon_sym_EQ = 21,
+  anon_sym_LBRACE_PERCENT = 22,
+  aux_sym_jinja_expression_token1 = 23,
+  anon_sym_LBRACE_POUND = 24,
+  aux_sym__jinja_comment_token1 = 25,
   sym__text = 26,
   sym_source_file = 27,
   sym_statement = 28,
@@ -59,11 +59,11 @@ enum {
   sym_pair = 40,
   sym__bool = 41,
   sym_identifier = 42,
-  sym_jinja_expression = 43,
-  sym__jinja_comment = 44,
-  sym_function = 45,
-  sym_argument_list = 46,
-  sym_kwarg = 47,
+  sym_function = 43,
+  sym_argument_list = 44,
+  sym_kwarg = 45,
+  sym_jinja_expression = 46,
+  sym__jinja_comment = 47,
   aux_sym_source_file_repeat1 = 48,
   aux_sym_list_repeat1 = 49,
   aux_sym_dict_repeat1 = 50,
@@ -92,11 +92,11 @@ static const char * const ts_symbol_names[] = {
   [sym_false] = "false",
   [sym_none] = "none",
   [sym__identifier] = "_identifier",
+  [anon_sym_EQ] = "=",
   [anon_sym_LBRACE_PERCENT] = "{%",
   [aux_sym_jinja_expression_token1] = "jinja_expression_token1",
   [anon_sym_LBRACE_POUND] = "{#",
   [aux_sym__jinja_comment_token1] = "_jinja_comment_token1",
-  [anon_sym_EQ] = "=",
   [sym__text] = "_text",
   [sym_source_file] = "source_file",
   [sym_statement] = "statement",
@@ -114,11 +114,11 @@ static const char * const ts_symbol_names[] = {
   [sym_pair] = "pair",
   [sym__bool] = "_bool",
   [sym_identifier] = "identifier",
-  [sym_jinja_expression] = "jinja_expression",
-  [sym__jinja_comment] = "_jinja_comment",
   [sym_function] = "function",
   [sym_argument_list] = "argument_list",
   [sym_kwarg] = "kwarg",
+  [sym_jinja_expression] = "jinja_expression",
+  [sym__jinja_comment] = "_jinja_comment",
   [aux_sym_source_file_repeat1] = "source_file_repeat1",
   [aux_sym_list_repeat1] = "list_repeat1",
   [aux_sym_dict_repeat1] = "dict_repeat1",
@@ -147,11 +147,11 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_false] = sym_false,
   [sym_none] = sym_none,
   [sym__identifier] = sym__identifier,
+  [anon_sym_EQ] = anon_sym_EQ,
   [anon_sym_LBRACE_PERCENT] = anon_sym_LBRACE_PERCENT,
   [aux_sym_jinja_expression_token1] = aux_sym_jinja_expression_token1,
   [anon_sym_LBRACE_POUND] = anon_sym_LBRACE_POUND,
   [aux_sym__jinja_comment_token1] = aux_sym__jinja_comment_token1,
-  [anon_sym_EQ] = anon_sym_EQ,
   [sym__text] = sym__text,
   [sym_source_file] = sym_source_file,
   [sym_statement] = sym_statement,
@@ -169,11 +169,11 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_pair] = sym_pair,
   [sym__bool] = sym__bool,
   [sym_identifier] = sym_identifier,
-  [sym_jinja_expression] = sym_jinja_expression,
-  [sym__jinja_comment] = sym__jinja_comment,
   [sym_function] = sym_function,
   [sym_argument_list] = sym_argument_list,
   [sym_kwarg] = sym_kwarg,
+  [sym_jinja_expression] = sym_jinja_expression,
+  [sym__jinja_comment] = sym__jinja_comment,
   [aux_sym_source_file_repeat1] = aux_sym_source_file_repeat1,
   [aux_sym_list_repeat1] = aux_sym_list_repeat1,
   [aux_sym_dict_repeat1] = aux_sym_dict_repeat1,
@@ -265,6 +265,10 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = true,
   },
+  [anon_sym_EQ] = {
+    .visible = true,
+    .named = false,
+  },
   [anon_sym_LBRACE_PERCENT] = {
     .visible = true,
     .named = false,
@@ -279,10 +283,6 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
   },
   [aux_sym__jinja_comment_token1] = {
     .visible = false,
-    .named = false,
-  },
-  [anon_sym_EQ] = {
-    .visible = true,
     .named = false,
   },
   [sym__text] = {
@@ -353,14 +353,6 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_jinja_expression] = {
-    .visible = true,
-    .named = true,
-  },
-  [sym__jinja_comment] = {
-    .visible = false,
-    .named = true,
-  },
   [sym_function] = {
     .visible = true,
     .named = true,
@@ -371,6 +363,14 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
   },
   [sym_kwarg] = {
     .visible = true,
+    .named = true,
+  },
+  [sym_jinja_expression] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym__jinja_comment] = {
+    .visible = false,
     .named = true,
   },
   [aux_sym_source_file_repeat1] = {
@@ -393,8 +393,8 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
 
 enum {
   field_argument_list = 1,
-  field_function = 2,
-  field_key = 3,
+  field_key = 2,
+  field_name = 3,
   field_quote_type = 4,
   field_string_content = 5,
   field_value = 6,
@@ -403,8 +403,8 @@ enum {
 static const char * const ts_field_names[] = {
   [0] = NULL,
   [field_argument_list] = "argument_list",
-  [field_function] = "function",
   [field_key] = "key",
+  [field_name] = "name",
   [field_quote_type] = "quote_type",
   [field_string_content] = "string_content",
   [field_value] = "value",
@@ -419,7 +419,7 @@ static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
 static const TSFieldMapEntry ts_field_map_entries[] = {
   [0] =
     {field_argument_list, 1},
-    {field_function, 0},
+    {field_name, 0},
   [2] =
     {field_quote_type, 0},
     {field_string_content, 1},
@@ -580,7 +580,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == ',') ADVANCE(37);
       if (lookahead == '.') ADVANCE(13);
       if (lookahead == ':') ADVANCE(44);
-      if (lookahead == '=') ADVANCE(64);
+      if (lookahead == '=') ADVANCE(59);
       if (lookahead == '[') ADVANCE(36);
       if (lookahead == ']') ADVANCE(38);
       if (lookahead == '{') ADVANCE(42);
@@ -609,7 +609,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == ',') ADVANCE(37);
       if (lookahead == '.') ADVANCE(13);
       if (lookahead == ':') ADVANCE(44);
-      if (lookahead == '=') ADVANCE(64);
+      if (lookahead == '=') ADVANCE(59);
       if (lookahead == '[') ADVANCE(36);
       if (lookahead == ']') ADVANCE(38);
       if (lookahead == '{') ADVANCE(41);
@@ -631,14 +631,14 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(58);
       END_STATE();
     case 2:
-      if (lookahead == '#') ADVANCE(61);
-      if (lookahead == '%') ADVANCE(59);
+      if (lookahead == '#') ADVANCE(62);
+      if (lookahead == '%') ADVANCE(60);
       if (lookahead == '{') ADVANCE(18);
       if (lookahead != 0) ADVANCE(66);
       END_STATE();
     case 3:
       if (lookahead == '#') ADVANCE(6);
-      if (lookahead == '}') ADVANCE(63);
+      if (lookahead == '}') ADVANCE(64);
       if (lookahead != 0) ADVANCE(5);
       END_STATE();
     case 4:
@@ -655,7 +655,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 6:
       if (lookahead == '#') ADVANCE(3);
-      if (lookahead == '}') ADVANCE(62);
+      if (lookahead == '}') ADVANCE(63);
       if (lookahead != 0) ADVANCE(5);
       END_STATE();
     case 7:
@@ -678,7 +678,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '}') ADVANCE(19);
       END_STATE();
     case 11:
-      if (lookahead == '}') ADVANCE(60);
+      if (lookahead == '}') ADVANCE(61);
       if (lookahead != 0) ADVANCE(8);
       END_STATE();
     case 12:
@@ -834,8 +834,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 42:
       ACCEPT_TOKEN(anon_sym_LBRACE);
-      if (lookahead == '#') ADVANCE(61);
-      if (lookahead == '%') ADVANCE(59);
+      if (lookahead == '#') ADVANCE(62);
+      if (lookahead == '%') ADVANCE(60);
       if (lookahead == '{') ADVANCE(18);
       END_STATE();
     case 43:
@@ -953,24 +953,24 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(58);
       END_STATE();
     case 59:
-      ACCEPT_TOKEN(anon_sym_LBRACE_PERCENT);
+      ACCEPT_TOKEN(anon_sym_EQ);
       END_STATE();
     case 60:
-      ACCEPT_TOKEN(aux_sym_jinja_expression_token1);
+      ACCEPT_TOKEN(anon_sym_LBRACE_PERCENT);
       END_STATE();
     case 61:
-      ACCEPT_TOKEN(anon_sym_LBRACE_POUND);
+      ACCEPT_TOKEN(aux_sym_jinja_expression_token1);
       END_STATE();
     case 62:
-      ACCEPT_TOKEN(aux_sym__jinja_comment_token1);
+      ACCEPT_TOKEN(anon_sym_LBRACE_POUND);
       END_STATE();
     case 63:
       ACCEPT_TOKEN(aux_sym__jinja_comment_token1);
-      if (lookahead == '#') ADVANCE(6);
-      if (lookahead != 0) ADVANCE(5);
       END_STATE();
     case 64:
-      ACCEPT_TOKEN(anon_sym_EQ);
+      ACCEPT_TOKEN(aux_sym__jinja_comment_token1);
+      if (lookahead == '#') ADVANCE(6);
+      if (lookahead != 0) ADVANCE(5);
       END_STATE();
     case 65:
       ACCEPT_TOKEN(sym__text);
@@ -1142,9 +1142,9 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_false] = ACTIONS(1),
     [sym_none] = ACTIONS(1),
     [sym__identifier] = ACTIONS(1),
+    [anon_sym_EQ] = ACTIONS(1),
     [anon_sym_LBRACE_PERCENT] = ACTIONS(1),
     [anon_sym_LBRACE_POUND] = ACTIONS(1),
-    [anon_sym_EQ] = ACTIONS(1),
   },
   [1] = {
     [sym_source_file] = STATE(123),
