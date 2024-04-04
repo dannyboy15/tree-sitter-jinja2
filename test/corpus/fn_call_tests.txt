@@ -23,7 +23,7 @@ select * from {{ ref('my_table') }}
 )
 
 ==================
-Ref with bare words fails
+Ref that uses identifier
 ==================
 
 select * from {{ ref(not_a_string) }}
@@ -36,9 +36,7 @@ select * from {{ ref(not_a_string) }}
     (function
       (identifier)
       (argument_list
-        (ERROR
-          (identifier)
-        )
+        (identifier)
       )
     )
   )

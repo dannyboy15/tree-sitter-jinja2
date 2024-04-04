@@ -63,6 +63,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
           "name": "function"
         }
       ]
@@ -624,6 +628,17 @@
       "type": "PATTERN",
       "value": "[Nn]one"
     },
+    "identifier": {
+      "type": "SYMBOL",
+      "name": "_identifier"
+    },
+    "_identifier": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[a-zA-Z_][a-zA-Z0-9_]*"
+      }
+    },
     "jinja_expression": {
       "type": "SEQ",
       "members": [
@@ -746,17 +761,6 @@
           "value": ")"
         }
       ]
-    },
-    "identifier": {
-      "type": "SYMBOL",
-      "name": "_identifier"
-    },
-    "_identifier": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PATTERN",
-        "value": "[a-zA-Z_][a-zA-Z0-9_]*"
-      }
     },
     "kwarg": {
       "type": "SEQ",

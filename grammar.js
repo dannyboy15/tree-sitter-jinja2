@@ -37,6 +37,7 @@ module.exports = grammar ({
 
         _expression: $ => choice(
             $._literal,
+            $.identifier,
             $.function,
         ),
 
@@ -140,6 +141,15 @@ module.exports = grammar ({
 
         none: _ => /[Nn]one/,
 
+        identifier: $ => $._identifier,
+
+        // This regex is fine until we allow user-named variables and functions.
+        // Once we do that we may want to allow Unicode identifiers like python does: /[_\p{XID_Start}][_\p{XID_Continue}]*/
+        _identifier: _ => token(new RegExp(
+            '[a-zA-Z_]'     + // starts with a lower or upper letter or an underscore
+            '[a-zA-Z0-9_]*'   // all following characters must be a lower or upper letter, digit, or underscore.
+        )),
+
         // This is awkward regex because we aren't parsing anything
         // in between the expression markers like 'expression' does
         jinja_expression: $ => seq(
@@ -186,15 +196,6 @@ module.exports = grammar ({
             optional(','),
             ')'
         ),
-
-        identifier: $ => $._identifier,
-
-        // This regex is fine until we allow user-named variables and functions.
-        // Once we do that we may want to allow Unicode identifiers like python does: /[_\p{XID_Start}][_\p{XID_Continue}]*/
-        _identifier: $ => token(new RegExp(
-            '[a-zA-Z_]'     + // starts with a lower or upper letter or an underscore
-                '[a-zA-Z0-9_]*'   // all following characters must be a lower or upper letter, digit, or underscore.
-        )),
 
         kwarg: $ => seq(
             field("key", $.identifier),

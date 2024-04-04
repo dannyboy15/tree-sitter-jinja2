@@ -1,5 +1,5 @@
 ==================
-bare words fail
+expression with identifier
 ==================
 
 {{ text }}
@@ -7,9 +7,10 @@ bare words fail
 ---
 
 (source_file
-  (ERROR
+  (expression
     (identifier)
   )
+  (text)
 )
 
 ==================
