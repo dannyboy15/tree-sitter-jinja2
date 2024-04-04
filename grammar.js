@@ -1,5 +1,5 @@
 
-// Note: if you ever need to explicitly match line breaks, those are system specific. 
+// Note: if you ever need to explicitly match line breaks, those are system specific.
 // use a regex like this \r\n?|\n to match on windows too.
 
 function commaSep1(rule) {
@@ -16,12 +16,20 @@ module.exports = grammar ({
   rules: {
     source_file: $ => repeat(
         choice(
-            $._jinja_value,
-            $.jinja_expression,
-            $._jinja_comment,
-            $._text
+            $.statement,
+            $.expression,
+            $.comment,
+            $.text,
         )
     ),
+
+    statement: $ => $.jinja_expression,
+
+    expression: $ => $._jinja_value,
+
+    comment: $ => $._jinja_comment,
+
+    text: $ => $._text,
 
     _jinja_value: $ => seq(
         '{{',
@@ -46,7 +54,7 @@ module.exports = grammar ({
     // comment regex is special because a comment can end
     // with #} ##} #######} etc.
     _jinja_comment: $ => seq(
-        '{#',                 // comments start with `{#` 
+        '{#',                 // comments start with `{#`
         new RegExp(
             '('             + // capture group
                 '('         + // capture group
@@ -125,13 +133,13 @@ module.exports = grammar ({
 
     identifier: $ => $._identifier,
 
-    // This regex is fine until we allow user-named variables and functions. 
+    // This regex is fine until we allow user-named variables and functions.
     // Once we do that we may want to allow Unicode identifiers like python does: /[_\p{XID_Start}][_\p{XID_Continue}]*/
     _identifier: $ => token(new RegExp(
         '[a-zA-Z_]'     + // starts with a lower or upper letter or an underscore
         '[a-zA-Z0-9_]*'   // all following characters must be a lower or upper letter, digit, or underscore.
     )),
-    
+
     kwarg: $ => seq(
         field("key", $.identifier),
         '=',

@@ -8,22 +8,38 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "_jinja_value"
+            "name": "statement"
           },
           {
             "type": "SYMBOL",
-            "name": "jinja_expression"
+            "name": "expression"
           },
           {
             "type": "SYMBOL",
-            "name": "_jinja_comment"
+            "name": "comment"
           },
           {
             "type": "SYMBOL",
-            "name": "_text"
+            "name": "text"
           }
         ]
       }
+    },
+    "statement": {
+      "type": "SYMBOL",
+      "name": "jinja_expression"
+    },
+    "expression": {
+      "type": "SYMBOL",
+      "name": "_jinja_value"
+    },
+    "comment": {
+      "type": "SYMBOL",
+      "name": "_jinja_comment"
+    },
+    "text": {
+      "type": "SYMBOL",
+      "name": "_text"
     },
     "_jinja_value": {
       "type": "SEQ",
