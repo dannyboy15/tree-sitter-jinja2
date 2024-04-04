@@ -74,3 +74,26 @@ unclosed jinja calls fail
     (MISSING "}}")
   )
 )
+
+==================
+Config with kwarg equal to None
+==================
+
+{{ config(key=None) }}
+
+---
+
+(source_file
+  (expression
+    (fn_call
+      (identifier)
+      (argument_list
+        (kwarg
+          (identifier)
+          (none)
+        )
+      )
+    )
+  )
+  (text)
+)

@@ -43,6 +43,7 @@ module.exports = grammar ({
             $.tuple,
             $.dict,
             $._bool,
+            $.none,
             $.fn_call,
         ),
 
@@ -132,6 +133,8 @@ module.exports = grammar ({
         true: _ => /[Tt]rue/,
 
         false: _ => /[Ff]alse/,
+
+        none: _ => /[Nn]one/,
 
         // This is awkward regex because we aren't parsing anything
         // in between the expression markers like 'expression' does

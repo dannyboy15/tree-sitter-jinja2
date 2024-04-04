@@ -87,6 +87,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "none"
+        },
+        {
+          "type": "SYMBOL",
           "name": "fn_call"
         }
       ]
@@ -606,6 +610,10 @@
     "false": {
       "type": "PATTERN",
       "value": "[Ff]alse"
+    },
+    "none": {
+      "type": "PATTERN",
+      "value": "[Nn]one"
     },
     "jinja_expression": {
       "type": "SEQ",

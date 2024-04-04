@@ -36,6 +36,10 @@
           "named": true
         },
         {
+          "type": "none",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -105,6 +109,10 @@
         },
         {
           "type": "list",
+          "named": true
+        },
+        {
+          "type": "none",
           "named": true
         },
         {
@@ -201,6 +209,10 @@
             "named": true
           },
           {
+            "type": "none",
+            "named": true
+          },
+          {
             "type": "string",
             "named": true
           },
@@ -246,6 +258,10 @@
         },
         {
           "type": "list",
+          "named": true
+        },
+        {
+          "type": "none",
           "named": true
         },
         {
@@ -303,6 +319,10 @@
           },
           {
             "type": "list",
+            "named": true
+          },
+          {
+            "type": "none",
             "named": true
           },
           {
@@ -440,6 +460,10 @@
           "named": true
         },
         {
+          "type": "none",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -492,6 +516,10 @@
   },
   {
     "type": "integer",
+    "named": true
+  },
+  {
+    "type": "none",
     "named": true
   },
   {
