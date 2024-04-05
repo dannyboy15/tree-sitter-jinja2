@@ -92,8 +92,7 @@ module.exports = grammar ({
 
         _literal: $ => choice(
             $.string,
-            $.integer,
-            $.float,
+            $._number,
             $.list,
             $.tuple,
             $.dict,
@@ -125,6 +124,11 @@ module.exports = grammar ({
         string_content_sq: _ => token(/([^']|\\')*/),
 
         string_content_dq: _ => token(/([^"]|\\")*/),
+
+        _number: $ => choice(
+            $.integer,
+            $.float,
+        ),
 
         integer: _ => token(
             seq(
@@ -222,17 +226,37 @@ module.exports = grammar ({
             field('value', $._expression),
         ),
 
-        _math: $ => choice(
-            $._addition,
-        ),
-
-        _addition: $ => seq(
-            $.integer,
-            $.addition_symbol,
-            $.integer,
+        _math: $ => seq(
+            $._number,
+            repeat1(
+                seq(
+                    choice(
+                        $.addition_symbol,
+                        $.subtraction_symbol,
+                        $.division_symbol,
+                        $.integer_division_symbol,
+                        $.modulus_symbol,
+                        $.multiplication_symbol,
+                        $.exponent_symbol,
+                    ),
+                    $._number,
+                )
+            ),
         ),
 
         addition_symbol: _ => '+',
+
+        subtraction_symbol: _ => '-',
+
+        division_symbol: _ => '/',
+
+        integer_division_symbol: _ => '//',
+
+        modulus_symbol: _ => '%',
+
+        multiplication_symbol: _ => '*',
+
+        exponent_symbol: _ => '**',
 
         // TODO: figure out issue with even number of hashes causing error
         comment_content: _ => /([^#]|(#[^}]))*?/,

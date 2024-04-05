@@ -214,11 +214,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "integer"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "float"
+          "name": "_number"
         },
         {
           "type": "SYMBOL",
@@ -326,6 +322,19 @@
         "type": "PATTERN",
         "value": "([^\"]|\\\\\")*"
       }
+    },
+    "_number": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "integer"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "float"
+        }
+      ]
     },
     "integer": {
       "type": "TOKEN",
@@ -896,34 +905,86 @@
       ]
     },
     "_math": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_addition"
-        }
-      ]
-    },
-    "_addition": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "integer"
+          "name": "_number"
         },
         {
-          "type": "SYMBOL",
-          "name": "addition_symbol"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "integer"
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "addition_symbol"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "subtraction_symbol"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "division_symbol"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "integer_division_symbol"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "modulus_symbol"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "multiplication_symbol"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "exponent_symbol"
+                  }
+                ]
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_number"
+              }
+            ]
+          }
         }
       ]
     },
     "addition_symbol": {
       "type": "STRING",
       "value": "+"
+    },
+    "subtraction_symbol": {
+      "type": "STRING",
+      "value": "-"
+    },
+    "division_symbol": {
+      "type": "STRING",
+      "value": "/"
+    },
+    "integer_division_symbol": {
+      "type": "STRING",
+      "value": "//"
+    },
+    "modulus_symbol": {
+      "type": "STRING",
+      "value": "%"
+    },
+    "multiplication_symbol": {
+      "type": "STRING",
+      "value": "*"
+    },
+    "exponent_symbol": {
+      "type": "STRING",
+      "value": "**"
     },
     "comment_content": {
       "type": "PATTERN",

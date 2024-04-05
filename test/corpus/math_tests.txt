@@ -14,3 +14,267 @@ addition
   )
   (text)
 )
+
+==================
+multiple addition
+==================
+
+{{ 1 + 1 + 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (addition_symbol)
+    (integer)
+    (addition_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+subtraction
+==================
+
+{{ 1 - 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (subtraction_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+multiple subtraction
+==================
+
+{{ 1 - 1 - 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (subtraction_symbol)
+    (integer)
+    (subtraction_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+division
+==================
+
+{{ 1 / 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (division_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+multiple division
+==================
+
+{{ 1 / 1 / 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (division_symbol)
+    (integer)
+    (division_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+integer division
+==================
+
+{{ 1 // 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (integer_division_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+multiple integer division
+==================
+
+{{ 1 // 1 // 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (integer_division_symbol)
+    (integer)
+    (integer_division_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+modulus
+==================
+
+{{ 1 % 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (modulus_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+multiple modulus
+==================
+
+{{ 1 % 1 % 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (modulus_symbol)
+    (integer)
+    (modulus_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+multiplication
+==================
+
+{{ 1 * 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (multiplication_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+multiple multiplication
+==================
+
+{{ 1 * 1 * 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (multiplication_symbol)
+    (integer)
+    (multiplication_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+exponent
+==================
+
+{{ 1 ** 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (exponent_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+multiple exponent
+==================
+
+{{ 1 ** 1 ** 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (exponent_symbol)
+    (integer)
+    (exponent_symbol)
+    (integer)
+  )
+  (text)
+)
+
+==================
+multiple math expressions
+==================
+
+{{ 1 + 1 - 1 / 1 // 1 % 1 * 1 ** 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (addition_symbol)
+    (integer)
+    (subtraction_symbol)
+    (integer)
+    (division_symbol)
+    (integer)
+    (integer_division_symbol)
+    (integer)
+    (modulus_symbol)
+    (integer)
+    (multiplication_symbol)
+    (integer)
+    (exponent_symbol)
+    (integer)
+  )
+  (text)
+)
