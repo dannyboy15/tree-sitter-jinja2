@@ -31,7 +31,7 @@ module.exports = grammar ({
 
         expression:$ => seq(
             '{{',
-            $._expression,
+            $._expression_statement,
             '}}'
         ),
 
@@ -83,11 +83,16 @@ module.exports = grammar ({
 
         else: _ => 'else',
 
+        _expression_statement: $ => choice(
+            $._expression,
+            $._math,
+            $._comparison,
+        ),
+
         _expression: $ => choice(
             $._literal,
             $.identifier,
             $.function,
-            $._math,
         ),
 
         _literal: $ => choice(
@@ -257,6 +262,33 @@ module.exports = grammar ({
         multiplication_symbol: _ => '*',
 
         exponent_symbol: _ => '**',
+
+        _comparison: $ => seq(
+            $._expression,
+            $._comparison_operator,
+            $._expression,
+        ),
+
+        _comparison_operator: $ => choice(
+            $.eq,
+            $.neq,
+            $.gt,
+            $.gte,
+            $.lt,
+            $.lte,
+        ),
+
+        eq: _ => '==',
+
+        neq: _ => '!=',
+
+        gt: _ => '>',
+
+        gte: _ => '>=',
+
+        lt: _ => '<',
+
+        lte: _ => '<=',
 
         // TODO: figure out issue with even number of hashes causing error
         comment_content: _ => /([^#]|(#[^}]))*?/,

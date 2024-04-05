@@ -51,7 +51,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_expression"
+          "name": "_expression_statement"
         },
         {
           "type": "STRING",
@@ -184,6 +184,23 @@
       "type": "STRING",
       "value": "else"
     },
+    "_expression_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_math"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_comparison"
+        }
+      ]
+    },
     "_expression": {
       "type": "CHOICE",
       "members": [
@@ -198,10 +215,6 @@
         {
           "type": "SYMBOL",
           "name": "function"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_math"
         }
       ]
     },
@@ -985,6 +998,76 @@
     "exponent_symbol": {
       "type": "STRING",
       "value": "**"
+    },
+    "_comparison": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_comparison_operator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "_comparison_operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "eq"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "neq"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "gt"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "gte"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "lt"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "lte"
+        }
+      ]
+    },
+    "eq": {
+      "type": "STRING",
+      "value": "=="
+    },
+    "neq": {
+      "type": "STRING",
+      "value": "!="
+    },
+    "gt": {
+      "type": "STRING",
+      "value": ">"
+    },
+    "gte": {
+      "type": "STRING",
+      "value": ">="
+    },
+    "lt": {
+      "type": "STRING",
+      "value": "<"
+    },
+    "lte": {
+      "type": "STRING",
+      "value": "<="
     },
     "comment_content": {
       "type": "PATTERN",

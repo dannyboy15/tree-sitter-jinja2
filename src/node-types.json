@@ -8,19 +8,7 @@
       "required": false,
       "types": [
         {
-          "type": "addition_symbol",
-          "named": true
-        },
-        {
           "type": "dict",
-          "named": true
-        },
-        {
-          "type": "division_symbol",
-          "named": true
-        },
-        {
-          "type": "exponent_symbol",
           "named": true
         },
         {
@@ -44,10 +32,6 @@
           "named": true
         },
         {
-          "type": "integer_division_symbol",
-          "named": true
-        },
-        {
           "type": "kwarg",
           "named": true
         },
@@ -56,23 +40,11 @@
           "named": true
         },
         {
-          "type": "modulus_symbol",
-          "named": true
-        },
-        {
-          "type": "multiplication_symbol",
-          "named": true
-        },
-        {
           "type": "none",
           "named": true
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_symbol",
           "named": true
         },
         {
@@ -127,7 +99,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "addition_symbol",
@@ -139,6 +111,10 @@
         },
         {
           "type": "division_symbol",
+          "named": true
+        },
+        {
+          "type": "eq",
           "named": true
         },
         {
@@ -158,6 +134,14 @@
           "named": true
         },
         {
+          "type": "gt",
+          "named": true
+        },
+        {
+          "type": "gte",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -174,11 +158,23 @@
           "named": true
         },
         {
+          "type": "lt",
+          "named": true
+        },
+        {
+          "type": "lte",
+          "named": true
+        },
+        {
           "type": "modulus_symbol",
           "named": true
         },
         {
           "type": "multiplication_symbol",
+          "named": true
+        },
+        {
+          "type": "neq",
           "named": true
         },
         {
@@ -250,23 +246,11 @@
         ]
       },
       "value": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "addition_symbol",
-            "named": true
-          },
-          {
             "type": "dict",
-            "named": true
-          },
-          {
-            "type": "division_symbol",
-            "named": true
-          },
-          {
-            "type": "exponent_symbol",
             "named": true
           },
           {
@@ -290,19 +274,7 @@
             "named": true
           },
           {
-            "type": "integer_division_symbol",
-            "named": true
-          },
-          {
             "type": "list",
-            "named": true
-          },
-          {
-            "type": "modulus_symbol",
-            "named": true
-          },
-          {
-            "type": "multiplication_symbol",
             "named": true
           },
           {
@@ -311,10 +283,6 @@
           },
           {
             "type": "string",
-            "named": true
-          },
-          {
-            "type": "subtraction_symbol",
             "named": true
           },
           {
@@ -338,19 +306,7 @@
       "required": false,
       "types": [
         {
-          "type": "addition_symbol",
-          "named": true
-        },
-        {
           "type": "dict",
-          "named": true
-        },
-        {
-          "type": "division_symbol",
-          "named": true
-        },
-        {
-          "type": "exponent_symbol",
           "named": true
         },
         {
@@ -374,19 +330,7 @@
           "named": true
         },
         {
-          "type": "integer_division_symbol",
-          "named": true
-        },
-        {
           "type": "list",
-          "named": true
-        },
-        {
-          "type": "modulus_symbol",
-          "named": true
-        },
-        {
-          "type": "multiplication_symbol",
           "named": true
         },
         {
@@ -395,10 +339,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_symbol",
           "named": true
         },
         {
@@ -427,23 +367,11 @@
         ]
       },
       "value": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "addition_symbol",
-            "named": true
-          },
-          {
             "type": "dict",
-            "named": true
-          },
-          {
-            "type": "division_symbol",
-            "named": true
-          },
-          {
-            "type": "exponent_symbol",
             "named": true
           },
           {
@@ -467,19 +395,7 @@
             "named": true
           },
           {
-            "type": "integer_division_symbol",
-            "named": true
-          },
-          {
             "type": "list",
-            "named": true
-          },
-          {
-            "type": "modulus_symbol",
-            "named": true
-          },
-          {
-            "type": "multiplication_symbol",
             "named": true
           },
           {
@@ -488,10 +404,6 @@
           },
           {
             "type": "string",
-            "named": true
-          },
-          {
-            "type": "subtraction_symbol",
             "named": true
           },
           {
@@ -547,15 +459,7 @@
       "required": false,
       "types": [
         {
-          "type": "addition_symbol",
-          "named": true
-        },
-        {
           "type": "dict",
-          "named": true
-        },
-        {
-          "type": "division_symbol",
           "named": true
         },
         {
@@ -572,10 +476,6 @@
         },
         {
           "type": "endif",
-          "named": true
-        },
-        {
-          "type": "exponent_symbol",
           "named": true
         },
         {
@@ -611,19 +511,7 @@
           "named": true
         },
         {
-          "type": "integer_division_symbol",
-          "named": true
-        },
-        {
           "type": "list",
-          "named": true
-        },
-        {
-          "type": "modulus_symbol",
-          "named": true
-        },
-        {
-          "type": "multiplication_symbol",
           "named": true
         },
         {
@@ -632,10 +520,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_symbol",
           "named": true
         },
         {
@@ -697,19 +581,7 @@
       "required": false,
       "types": [
         {
-          "type": "addition_symbol",
-          "named": true
-        },
-        {
           "type": "dict",
-          "named": true
-        },
-        {
-          "type": "division_symbol",
-          "named": true
-        },
-        {
-          "type": "exponent_symbol",
           "named": true
         },
         {
@@ -733,19 +605,7 @@
           "named": true
         },
         {
-          "type": "integer_division_symbol",
-          "named": true
-        },
-        {
           "type": "list",
-          "named": true
-        },
-        {
-          "type": "modulus_symbol",
-          "named": true
-        },
-        {
-          "type": "multiplication_symbol",
           "named": true
         },
         {
@@ -754,10 +614,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_symbol",
           "named": true
         },
         {
@@ -836,6 +692,10 @@
     "named": true
   },
   {
+    "type": "eq",
+    "named": true
+  },
+  {
     "type": "exponent_symbol",
     "named": true
   },
@@ -849,6 +709,14 @@
   },
   {
     "type": "for",
+    "named": true
+  },
+  {
+    "type": "gt",
+    "named": true
+  },
+  {
+    "type": "gte",
     "named": true
   },
   {
@@ -868,11 +736,23 @@
     "named": true
   },
   {
+    "type": "lt",
+    "named": true
+  },
+  {
+    "type": "lte",
+    "named": true
+  },
+  {
     "type": "modulus_symbol",
     "named": true
   },
   {
     "type": "multiplication_symbol",
+    "named": true
+  },
+  {
+    "type": "neq",
     "named": true
   },
   {

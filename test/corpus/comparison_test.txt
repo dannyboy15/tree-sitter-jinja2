@@ -1,0 +1,123 @@
+==================
+equality
+==================
+
+{{ 1 == 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (eq)
+    (integer)
+  )
+  (text)
+)
+
+==================
+inequality
+==================
+
+{{ 'a' != "b" }}
+
+---
+
+(source_file
+  (expression
+    (string
+      (single_quote)
+      (string_content_sq)
+    )
+    (neq)
+    (string
+      (double_quote)
+      (string_content_dq)
+    )
+  )
+  (text)
+)
+
+==================
+greater than
+==================
+
+{{ 1 > func() }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (gt)
+    (function
+      (identifier)
+      (argument_list)
+    )
+  )
+  (text)
+)
+
+==================
+greater than or equal to
+==================
+
+{{ True >= False }}
+
+---
+
+(source_file
+  (expression
+    (true)
+    (gte)
+    (false)
+  )
+  (text)
+)
+
+==================
+less than
+==================
+
+{{ 1 < 1 }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (lt)
+    (integer)
+  )
+  (text)
+)
+
+==================
+less than or equal to
+==================
+
+{{ [1] <= {'a': func()} }}
+
+---
+
+(source_file
+  (expression
+    (list
+      (integer)
+    )
+    (lte)
+    (dict
+      (pair
+        (string
+          (single_quote)
+          (string_content_sq)
+        )
+        (function
+          (identifier)
+          (argument_list)
+        )
+      )
+    )
+  )
+  (text)
+)
