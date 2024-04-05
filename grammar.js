@@ -87,6 +87,7 @@ module.exports = grammar ({
             $._expression,
             $._math,
             $._comparison,
+            $._logic,
         ),
 
         _expression: $ => choice(
@@ -289,6 +290,27 @@ module.exports = grammar ({
         lt: _ => '<',
 
         lte: _ => '<=',
+
+        _logic: $ => seq(
+            $._expression,
+            $._logic_operator,
+            $._expression,
+        ),
+
+        _logic_operator: $ => choice(
+            $.and,
+            $.or,
+        ),
+
+        and: _ => 'and',
+
+        or: _ => 'or',
+
+        // TODO: impelement not expression
+        not: _ => 'not',
+
+        // TODO: impelement parantheses expression
+        parentheses_expression: _ => '',
 
         // TODO: figure out issue with even number of hashes causing error
         comment_content: _ => /([^#]|(#[^}]))*?/,

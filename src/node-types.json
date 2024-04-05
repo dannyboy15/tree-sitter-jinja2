@@ -106,6 +106,10 @@
           "named": true
         },
         {
+          "type": "and",
+          "named": true
+        },
+        {
           "type": "dict",
           "named": true
         },
@@ -179,6 +183,10 @@
         },
         {
           "type": "none",
+          "named": true
+        },
+        {
+          "type": "or",
           "named": true
         },
         {
@@ -668,6 +676,10 @@
     "named": true
   },
   {
+    "type": "and",
+    "named": true
+  },
+  {
     "type": "comment_content",
     "named": true
   },
@@ -757,6 +769,10 @@
   },
   {
     "type": "none",
+    "named": true
+  },
+  {
+    "type": "or",
     "named": true
   },
   {

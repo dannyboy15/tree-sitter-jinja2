@@ -1,0 +1,39 @@
+==================
+and operator
+==================
+
+{{ 1 and "b" }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (and)
+    (string
+      (double_quote)
+      (string_content_dq)
+    )
+  )
+  (text)
+)
+
+==================
+or operator
+==================
+
+{{ 1 or func() }}
+
+---
+
+(source_file
+  (expression
+    (integer)
+    (or)
+    (function
+      (identifier)
+      (argument_list)
+    )
+  )
+  (text)
+)

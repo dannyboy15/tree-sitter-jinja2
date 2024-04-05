@@ -198,6 +198,10 @@
         {
           "type": "SYMBOL",
           "name": "_comparison"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_logic"
         }
       ]
     },
@@ -1068,6 +1072,52 @@
     "lte": {
       "type": "STRING",
       "value": "<="
+    },
+    "_logic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_logic_operator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "_logic_operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "and"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "or"
+        }
+      ]
+    },
+    "and": {
+      "type": "STRING",
+      "value": "and"
+    },
+    "or": {
+      "type": "STRING",
+      "value": "or"
+    },
+    "not": {
+      "type": "STRING",
+      "value": "not"
+    },
+    "parentheses_expression": {
+      "type": "STRING",
+      "value": ""
     },
     "comment_content": {
       "type": "PATTERN",
