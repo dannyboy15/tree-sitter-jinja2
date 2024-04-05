@@ -278,3 +278,37 @@ True is an invalid fn name
   )
   (text)
 )
+
+==================
+Dotted identifier
+==================
+
+{{ item.name }}
+
+---
+
+(source_file
+  (expression
+    (identifier)
+  )
+  (text)
+)
+
+==================
+Dotted function
+==================
+
+{{ item.func() }}
+
+---
+
+(source_file
+  (expression
+    (function
+      (identifier)
+      (argument_list)
+    )
+  )
+  (text)
+)
+

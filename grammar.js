@@ -200,7 +200,15 @@ module.exports = grammar ({
 
         none: _ => /[Nn]one/,
 
-        identifier: $ => $._identifier,
+        identifier: $ => seq(
+            $._identifier,
+            repeat(
+                seq(
+                    '.',
+                    $._identifier,
+                )
+            ),
+        ),
 
         // This regex is fine until we allow user-named variables and functions.
         // Once we do that we may want to allow Unicode identifiers like python does: /[_\p{XID_Start}][_\p{XID_Continue}]*/
